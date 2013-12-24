@@ -36,7 +36,7 @@
       <index name="index_users_on_project_id" unique="true" columns="project_id"/>
     </table>
   </data-source>
-  <data-source source="LOCAL" name="Rails marketbymarket: test" uuid="277d53a3-2f2a-4968-8b5b-ed590b07c454">
+  <data-source source="LOCAL" name="Rails marketbymarket: test" uuid="356188fa-d609-47c5-bc16-711120d95271">
     <database-info product="SQLite" version="3.7.6.3" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
     <schema name="" catalog=""/>
