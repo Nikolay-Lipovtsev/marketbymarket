@@ -1,4 +1,14 @@
 Marketbymarket::Application.routes.draw do
+  #Static pages routes
+  root                  to: 'static_pages#home'
+
+  #Sign up routes
+  get '/signup',        to: 'projects#new'
+  resources :projects, only: :create
+
+  #Projects routes
+  get '/:name',         to: 'projects#show', as: :project
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

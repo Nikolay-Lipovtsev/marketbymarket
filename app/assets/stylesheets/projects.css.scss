@@ -1,0 +1,22 @@
+@import "custom_colors";
+@import "custom_margins";
+@import "custom_typography";
+
+html, body {
+  overflow-y: scroll;
+}
+
+#wrapper {
+  position: relative;
+}
+
+#nav-left {
+  background-color: $MidnightBlue;
+  width: 250px;
+  float: left;
+}
+
+#content {
+  background-color: $Clouds;
+  float: left;
+}
