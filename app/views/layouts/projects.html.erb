@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+
+  <%= stylesheet_link_tag    "custom", media: "all" %>
+  <%= stylesheet_link_tag    "projects", media: "all" %>
+  <%= stylesheet_link_tag    "sidebar", media: "all" %>
+
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "projects" %>
+  <%= javascript_include_tag "sidebar" %>
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
+</head>
+<body>
+
+<div id="wrapper">
+
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <%= render 'layouts/projects_side_bar' %>
+    </ul>
+  </div>
+
+  <!-- Page content -->
+  <div id="page-content-wrapper">
+    <div class="content-header">
+      <h1>
+        <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
+        Simple Sidebar
+      </h1>
+    </div>
+
+    <div class="page-content inset">
+      <%= yield %>
+      <div class="row">
+        <div class="col-md-12">
+          <%= debug(params) if Rails.env.development? %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

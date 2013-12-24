@@ -1,0 +1,20 @@
+@import "custom_colors";
+@import "custom_margins";
+@import "custom_typography";
+
+/* Content */
+
+.sign-up-form {
+  background-color: $WhiteSmoke;
+}
+
+/* Footer */
+
+#footer {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  .first {
+    padding-top: 40px;
+    border-top: 1px solid $Silver;
+  }
+}

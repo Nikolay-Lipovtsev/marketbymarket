@@ -1,0 +1,153 @@
+<% provide(:title, 'регистрация') %>
+
+<div class="container margin-top-40 margin-bottom-80">
+  <div class="row">
+    <div class="col-md-6 center-block text-center">
+      <%= link_to image_tag('main_logo.png', alt: "Market by market"), root_path %>
+      <h3 class="margin-top-40 text-slim">
+        Зарегистрироваться - это просто!
+      </h3>
+    </div>
+  </div>
+  <div class="row margin-top-20">
+    <div class="col-md-6 center-block">
+      <div class="panel panel-default">
+        <div class="panel-body sign-up-form">
+          <div class="row margin-top-20">
+            <div class="col-md-12">
+              <p class="text-muted">
+                Просто придумайте название вашего проекта, укажите почту и пароль.
+              </p>
+            </div>
+          </div>
+          <%= form_for(@project, html: { role: "form" }) do |project_fields| %>
+            <div class="row margin-top-20">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">marketbymarket.ru/</span>
+                    <%= project_fields.text_field(:name, class: "form-control",
+                                                  id: "name",
+                                                  placeholder: "Название проекта",
+                                                  maxlength: "50",
+                                                  data: { container: "body",
+                                                          toggle: "popover",
+                                                          placement: "bottom",
+                                                          content: 'Выберите запоминающийся адрес
+                                                          для названия вашего проекта.
+                                                          Название может содержать латинские буквы, знак "-"
+                                                          и его длина не должна превышать 20 символов.
+                                                          Например: marketbymarket.ru/my-company/' }) %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <%= project_fields.fields_for :users do |users_fields| %>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= users_fields.email_field(:email, class: "form-control",
+                                                 id: "email",
+                                                 placeholder: "Адрес электронной почты",
+                                                 maxlength: "50",
+                                                 data: { container: "body",
+                                                         toggle: "popover",
+                                                         placement: "bottom",
+                                                         content: "Нужен для подтверждения регистрации,
+                                                         а также на случай обратной связи." }) %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= users_fields.password_field(:password, class: "form-control",
+                                                    id: "password",
+                                                    placeholder: "Пароль",
+                                                    data: { container: "body",
+                                                            toggle: "popover",
+                                                            placement: "bottom",
+                                                            content: "В целях безопасности длина пароля
+                                                            не может быть меньше 8 символов." }) %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= users_fields.password_field(:password_confirmation, class: "form-control",
+                                                    id: "password-confirmation",
+                                                    placeholder: "Ещё раз пароль",
+                                                    data: { container: "body",
+                                                            toggle: "popover",
+                                                            placement: "bottom",
+                                                            content: "Введите пароль ещё раз." }) %>
+                  </div>
+                </div>
+              </div>
+
+            <% end %><!-- /fields_for users -->
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="checkbox">
+                  <label>
+                    <%= fields_for :additional do |additional_fields| %>
+                        <%= additional_fields.check_box :remember_me %> Запомнить меня
+                    <% end %>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row margin-top-20 margin-bottom-20">
+              <!-- Button trigger request for agreement -->
+              <div class="col-md-12">
+                <button type="button" class="btn btn-primary"
+                        data-toggle="modal" data-target="#request-for-agreement">
+                  Sign up
+                </button>
+              </div>
+            </div>
+
+            <!-- Modal request for agreement -->
+            <div class="modal fade" id="request-for-agreement" tabindex="-1" role="dialog"
+                 aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <p>
+                      Нажимая кнопку "Зарегистрироваться", вы соглашаетесь с нашими
+                      <%= link_to "Условиями пользовательского соглашения", "#" %> и подтверждаете,
+                      что ознакомились с нашей <%= link_to "Политикой использования данных", "#" %>.
+                    </p>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Не согласен</button>
+                    <%= project_fields.submit "Зарегистрироваться", class: "btn btn-primary" %>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+          <% end %><!-- /form -->
+
+        </div><!-- /.panel-body -->
+      </div><!-- /.panel -->
+    </div><!-- /.col-md-5 -->
+  </div><!-- /.row -->
+
+  <div class="row">
+    <div class="col-md-6 center-block">
+      <div class="col-md-12 center-block">
+      <small>
+        Я уже зарегистрирован и мне нужно просто <%= link_to "войти", "#" %> в свой аккаунт.
+      </small>
+    </div><!-- /.col-md-5 -->
+  </div><!-- /.row -->
+</div><!-- /.container -->
