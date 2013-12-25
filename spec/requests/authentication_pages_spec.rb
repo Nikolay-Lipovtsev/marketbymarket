@@ -1,11 +1,13 @@
 require 'spec_helper'
 
-describe "AuthenticationPages" do
-  describe "GET /authentication_pages" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get authentication_pages_index_path
-      response.status.should be(200)
-    end
+describe "Authentication" do
+
+  describe "Signin page" do
+    before { visit signin_path }
+
+    it { expect(page).to have_title("Market by market - войти") }
+    it { expect(page).to have_selector("input[type=email][name='user[email]']")  }
+    it { expect(page).to have_selector("input[type=password][name='user[password]']") }
+    it { expect(page).to have_selector("input[type=submit][value='Войти']") }
   end
 end
