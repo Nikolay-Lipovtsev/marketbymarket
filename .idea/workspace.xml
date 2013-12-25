@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b47b134f-3964-4fad-91c6-554c631f7312" name="Default" comment="Finish sign up end&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/requests/authentication_pages_spec.rb" afterPath="$PROJECT_DIR$/spec/requests/authentication_pages_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/marketbymarket.iml" afterPath="$PROJECT_DIR$/.idea/marketbymarket.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/requests/signup_page_spec.rb" afterPath="$PROJECT_DIR$/spec/requests/signup_page_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/spec__marketbymarket.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/spec__marketbymarket.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="b47b134f-3964-4fad-91c6-554c631f7312" name="Default" comment="Finish sign up end&#10;" />
     <ignored path="marketbymarket.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
