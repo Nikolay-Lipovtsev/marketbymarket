@@ -1,0 +1,31 @@
+@import "custom_colors";
+@import "custom_margins";
+@import "custom_typography";
+
+/* Header */
+
+.navbar-default {
+  background-color: #FFFFFF;
+  border: 0px;
+}
+
+/* Content */
+
+.responsive-img {
+  overflow: hidden;
+  width: auto;
+  height: 380px;
+  background: asset-url("main_home.jpg", image) bottom no-repeat;
+  background-size: cover;
+}
+
+/* Footer */
+
+#footer {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  .first {
+    padding-top: 40px;
+    border-top: 1px solid $Silver;
+  }
+}
