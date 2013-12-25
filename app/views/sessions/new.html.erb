@@ -1,0 +1,84 @@
+<% provide(:title, 'войти') %>
+
+<div class="container margin-top-40 margin-bottom-80">
+  <div class="row">
+    <div class="col-md-6 center-block text-center">
+      <%= link_to image_tag('main_logo.png', alt: "Market by market"), root_path %>
+      <h3 class="margin-top-40 text-slim">
+        Войдите в свой аккаунт
+      </h3>
+    </div>
+  </div>
+  <div class="row margin-top-20">
+    <div class="col-md-6 center-block">
+      <div class="panel panel-default">
+        <div class="panel-body sign-up-form">
+          <%= form_for(:session, url: sessions_path, html: { role: "form" }) do |session_fields| %>
+
+            <div class="row margin-top-20">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="form-group">
+                    <%= session_fields.email_field(:email, class: "form-control",
+                                                    id: "email",
+                                                    placeholder: "Адрес электронной почты",
+                                                    data: { container: "body",
+                                                            toggle: "popover",
+                                                            placement: "bottom",
+                                                            content: "Введите свой адрес электронной почты." }) %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="form-group">
+                    <%= session_fields.password_field(:password, class: "form-control",
+                                                   id: "password",
+                                                   placeholder: "Пароль",
+                                                   data: { container: "body",
+                                                           toggle: "popover",
+                                                           placement: "bottom",
+                                                           content: "Нужен для подтверждения." }) %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="checkbox">
+                  <label>
+                    <%= fields_for :additional do |additional_fields| %>
+                        <%= additional_fields.check_box :remember_me %> Запомнить меня
+                    <% end %>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row margin-top-20 margin-bottom-20">
+              <!-- Button trigger request for agreement -->
+              <div class="col-md-12">
+                <%= session_fields.submit "Войти", class: "btn btn-primary" %>
+              </div>
+            </div>
+
+          <% end %><!-- /form -->
+
+        </div><!-- /.panel-body -->
+      </div><!-- /.panel -->
+    </div><!-- /.col-md-5 -->
+  </div><!-- /.row -->
+
+  <div class="row">
+    <div class="col-md-6 center-block">
+      <div class="col-md-12 center-block">
+      <small>
+        Вы еще не зарегистрированы? <%= link_to "Создать аккаунт", signup_path %>.
+      </small>
+    </div><!-- /.col-md-5 -->
+  </div><!-- /.row -->
+</div><!-- /.container -->
