@@ -10,6 +10,7 @@
 #  updated_user    :integer
 #  created_at      :datetime
 #  updated_at      :datetime
+#  remember_token  :string(255)
 #
 
 require 'spec_helper'
@@ -25,6 +26,8 @@ describe User do
   it { expect(@user).to respond_to(:password_digest) }
   it { expect(@user).to respond_to(:password) }
   it { expect(@user).to respond_to(:password_confirmation) }
+  it { expect(@user).to respond_to(:remember_token) }
+  it { expect(@user).to respond_to(:authenticate) }
   it { expect(@user).to be_valid }
 
   describe "When email is not present" do
