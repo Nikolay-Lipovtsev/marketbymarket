@@ -105,4 +105,9 @@ describe User do
 
     it { should_not be_valid }
   end
+
+  describe "Remember token" do
+    before { @user.save }
+    it { expect(@user.remember_token).not_to be_blank }
+  end
 end

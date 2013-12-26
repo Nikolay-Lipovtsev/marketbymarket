@@ -16,7 +16,24 @@
         <li><%= link_to "О проекте", '#' %></li>
         <li><%= link_to "Партнеры", '#' %></li>
         <li><%= link_to "Контакты", '#' %></li>
-        <li><%= link_to "Войти", '#' %></li>
+        <% if signed_in? %>
+            <li><%= link_to "Проект", '#' %></li>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Аккаунт <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Профиль", "#" %></li>
+                <li><%= link_to "Настройки", '#' %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "Выйти", signout_path, method: :delete %>
+                </li>
+              </ul>
+            </li>
+        <% else %>
+            <li><%= link_to "Войти", signin_path %></li>
+        <% end %>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
