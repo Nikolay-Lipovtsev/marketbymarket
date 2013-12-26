@@ -10,6 +10,7 @@
 #  updated_user    :integer
 #  created_at      :datetime
 #  updated_at      :datetime
+#  remember_token  :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -20,6 +21,8 @@ class User < ActiveRecord::Base
   has_one    :user_profile, dependent: :destroy
 
   before_save { email.downcase! }
+  before_save :create_remember_token
+
 
   validates :email, presence: true, length: { maximum: 50 }
   validates :password_digest, presence: true
@@ -27,4 +30,10 @@ class User < ActiveRecord::Base
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+  private
+
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 end

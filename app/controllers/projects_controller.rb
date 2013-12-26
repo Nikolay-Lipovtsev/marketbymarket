@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     if @project.save
       add_created_user
+      sign_in @user
       redirect_to @project
     else
       render 'new'
