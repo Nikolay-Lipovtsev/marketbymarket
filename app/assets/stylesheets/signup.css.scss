@@ -18,3 +18,8 @@
     border-top: 1px solid $Silver;
   }
 }
+
+.bg-img {
+  background: asset-url("bg_sign.jpg", image) bottom no-repeat;
+  background-size: cover;
+}
