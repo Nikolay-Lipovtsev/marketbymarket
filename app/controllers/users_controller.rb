@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  layout 'projects'
+
+  def index
+    @users = User.all
+  end
 
   def new
     @user = User.new
@@ -16,6 +21,10 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   private

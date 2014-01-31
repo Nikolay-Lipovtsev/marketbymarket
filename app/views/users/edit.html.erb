@@ -1,0 +1,15 @@
+<div class="row">
+
+    <%= form_for @user, url: edit_project_user_path, html: { method: :put } do |user_fields| %>
+
+        <%= user_fields.text_field :email %>
+
+        <%= user_fields.password_field :password %>
+
+        <%= user_fields.password_field :password_confirmation %>
+
+        <%= user_fields.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+
+</div>

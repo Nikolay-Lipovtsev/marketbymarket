@@ -3,13 +3,16 @@
 <head>
   <title><%= full_title(yield(:title)) %></title>
 
-  <%= stylesheet_link_tag    "custom", media: "all" %>
+  <%= render "layouts/description" %>
+
+  <%= stylesheet_link_tag    "application",   media: "all" %>
+  <%= stylesheet_link_tag    "custom",   media: "all" %>
   <%= stylesheet_link_tag    "projects", media: "all" %>
-  <%= stylesheet_link_tag    "sidebar", media: "all" %>
+  <%= stylesheet_link_tag    "sidebar",  media: "all" %>
 
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "projects" %>
-  <%= javascript_include_tag "sidebar" %>
+
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
@@ -18,20 +21,54 @@
 <div id="wrapper">
 
   <!-- Sidebar -->
-  <div id="sidebar-wrapper">
-    <ul class="sidebar-nav">
-      <%= render 'layouts/projects_side_bar' %>
-    </ul>
-  </div>
+
+  <%= render "layouts/projects_side_bar" %>
 
   <!-- Page content -->
-  <div id="page-content-wrapper">
+
+  <div id="page-content-wrapper" class="container">
+
+    <!-- Content header -->
+
     <div class="content-header">
-      <h1>
-        <a id="menu-toggle" href="#" class="btn btn-default"><i class="icon-reorder"></i></a>
-        Simple Sidebar
-      </h1>
+      <div class="row">
+
+        <!-- Current user -->
+
+        <div id="current-user">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <%= image_tag("demo_avatar.jpg", alt: "Avatar", class: "img-circle avatar") %>
+            <p>Прохор Митрич</p>
+            <i class="fa fa-caret-down fa-lg"></i>
+          </a>
+          <ul class="dropdown-menu pull-right" role="menu">
+            <li><a href="#"><i class="fa fa-lg fa-users"></i>Профиль</a></li>
+            <li class="divider"></li>
+            <li><a href="#"><i class="fa fa-lg fa-sign-out"></i>Выход</a></li>
+          </ul>
+        </div>
+
+        <!-- Menu toggle -->
+
+        <div id="btn-menu-toogle" class="col-sm-12 visible-xs">
+          <button id="menu-toggle"
+                  type="button"
+                  class="btn btn-default"
+                  data-toggle="collapse"
+                  data-target=".sidebar-collapse">
+            <i class="fa fa-bars fa-lg text-muted"></i>
+          </button>
+        </div>
+
+        <!-- Content title -->
+
+        <div class="title col-sm-6">
+          <h1>Пользователи</h1>
+        </div>
+      </div>
     </div>
+
+    <!-- Content -->
 
     <div class="page-content inset">
       <%= yield %>
@@ -42,6 +79,8 @@
       </div>
     </div>
   </div>
-</div>
+
+</div><!-- /#wrapper -->
+
 </body>
 </html>

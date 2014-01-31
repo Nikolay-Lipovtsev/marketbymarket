@@ -9,7 +9,20 @@ $(window).resize(function(){
 
 var ready;
 ready = function() {
-    sideBarMenu()
+
+    //Side bar menu toggle
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+
+
+    $("#sidebar-wrapper [data-toggle=collapse]").click(function(){
+
+        // toggle icon
+        $(this).find("i.angle").toggleClass("fa-angle-right fa-angle-down");
+
+    });
 };
 
 $(document).ready(ready);

@@ -2,23 +2,30 @@
 @import "custom_margins";
 @import "custom_typography";
 $SidebarWidth: 250px;
-
+$SidebarBgColor: $MidWhiteSmoke;
+$SidebarUiBgColor: $MidWhiteSmoke;
+$SidebarLiColor: $MidWhiteSmoke;
+$SidebarLiHoverColor: $MidWhiteSmoke;
+$SidebarLiActivColor: $MidWhiteSmoke;
 
 #wrapper {
-  padding-left: $SidebarWidth;
+  padding-left: 250px;
   transition: all 0.4s ease 0s;
 }
 
 #sidebar-wrapper {
-  margin-left: -$SidebarWidth;
+  margin-left: -250px;
   left: $SidebarWidth;
   width: $SidebarWidth;
-  background: $DarkBlue;
+  background: $SidebarBgColor;
   position: fixed;
   height: 100%;
   overflow-y: auto;
   z-index: 1000;
   transition: all 0.4s ease 0s;
+  li {
+    background: $SidebarUiBgColor;
+  }
 }
 
 #page-content-wrapper {
@@ -37,24 +44,29 @@ $SidebarWidth: 250px;
 .sidebar-nav li {
   line-height: 40px;
   text-indent: 20px;
-  background: $BlackBlue;
-  i {
+  list-style: none;
+  .icon {
+    width: 34px;
+    float: left;
+  }
+  .fa {
     display: inline;
+    padding-right: 10px;
+  }
+  .angle {
+    line-height: 40px;
   }
 }
 
 .sidebar-nav li a {
-  color: $Silver;
+  color: $DefaultText;
   display: block;
   text-decoration: none;
-  i {
-    margin-right: 15px;
-  }
 }
 
 .sidebar-nav li a:hover {
   color: $Turquoise;
-  background: $MidnightBlue;
+  background: $SidebarBgColor;
   text-decoration: none;
 }
 
@@ -67,36 +79,55 @@ $SidebarWidth: 250px;
   height: 65px;
   line-height: 60px;
   font-size: 18px;
-  background: $DarkBlue;
+  background: $SidebarBgColor;
 }
 
 .sidebar-nav > .sidebar-brand a {
-  color: $Silver;
+  color: #999999;
+  background: $SidebarBgColor;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
-  color: $White;
-  background: none;
+  color: #fff;
+  background: $SidebarBgColor;
 }
 
 .content-header {
-  height: 65px;
   line-height: 65px;
+  min-height: 65px;
+  margin-bottom: 30px;
+  #btn-menu-toogle {
+    border-bottom: 1px solid $DarkWhiteSmoke;
+  }
+  .title {
+    color: $Concrete;
+  }
+  #current-user {
+    height: 65px;
+    position: absolute;
+    right: 15px;
+    z-index: 1;
+    img,p {
+      display: inline-block;
+    }
+    a, a:hover, a:focus {
+      text-decoration: none;
+      color: $DefaultText;
+    }
+    .dropdown-menu .fa {
+      padding-right: 10px;
+    }
+  }
 }
 
 .content-header h1 {
   margin: 0;
-  margin-left: 20px;
   line-height: 65px;
   display: inline-block;
 }
 
 #menu-toggle {
   display: none;
-}
-
-.inset {
-  padding: 20px;
 }
 
 @media (max-width:767px) {
@@ -124,8 +155,10 @@ $SidebarWidth: 250px;
     display: inline-block;
   }
 
-  .inset {
-    padding: 15px;
+  .content-header {
+    .title {
+      height: 100px;
+      line-height: 130px;
+    }
   }
-
 }

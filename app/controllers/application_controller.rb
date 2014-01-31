@@ -10,4 +10,16 @@ class ApplicationController < ActionController::Base
     sign_out
     super
   end
+
+  before_action :set_locale
+
+  private
+
+  def set_locale
+    if params[:locale] == "en"
+      I18n.locale = params[:locale]
+    else
+      I18n.locale = I18n.default_locale
+    end
+  end
 end
