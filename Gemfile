@@ -9,6 +9,9 @@ gem 'sqlite3'
 # Use Bootstrap
 gem 'bootstrap-sass', '~> 3.0.3.0'
 
+# Russian language support for Ruby and Rails, using I18n library
+gem 'russian', '~> 0.6.0'
+
 # Icons by Font Awesome SASS
 gem 'font-awesome-sass'
 

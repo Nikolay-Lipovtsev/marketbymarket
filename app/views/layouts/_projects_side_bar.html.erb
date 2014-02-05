@@ -3,7 +3,12 @@
 <div id="sidebar-wrapper">
   <ul class="sidebar-nav">
 
-    <li class="sidebar-brand"><%= link_to "Market by market", root_path, data: { no_turbolink: true } %></li>
+    <li class="sidebar-brand">
+      <%= link_to "Market by Market",
+                  root_path,
+                  data: { no_turbolink: true }
+      %>
+    </li>
     <li><a href="#"><div class="icon"><i class="fa fa-lg fa-shopping-cart"></i></div><%= t("project.side_bar.orders") %></a></li>
     <li><a href="#"><div class="icon"><i class="fa fa-lg fa-check"></i></div><%= t("project.side_bar.tasks") %></a></li>
     <li><a href="#"><div class="icon"><i class="fa fa-lg fa-archive"></i></div><%= t("project.side_bar.goods") %></a></li>

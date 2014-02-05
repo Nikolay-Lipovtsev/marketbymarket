@@ -65,8 +65,8 @@ $SidebarLiActivColor: $MidWhiteSmoke;
 }
 
 .sidebar-nav li a:hover {
-  color: $Turquoise;
-  background: $SidebarBgColor;
+  color: $White;
+  background: $Silver;
   text-decoration: none;
 }
 
@@ -83,7 +83,9 @@ $SidebarLiActivColor: $MidWhiteSmoke;
 }
 
 .sidebar-nav > .sidebar-brand a {
-  color: #999999;
+  font-size: 22px;
+  font-weight: 200;
+  color: $PinkFire;
   background: $SidebarBgColor;
 }
 
