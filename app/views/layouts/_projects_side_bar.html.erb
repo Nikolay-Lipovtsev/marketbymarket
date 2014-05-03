@@ -1,26 +1,27 @@
 <!-- Sidebar -->
 
 <div id="sidebar-wrapper">
+
   <ul class="sidebar-nav">
 
     <li class="sidebar-brand">
-      <%= link_to "Market by Market",
+      <%= link_to image_tag('main_logo.png', alt: "Market by market", class: "center-block"),
                   root_path,
                   data: { no_turbolink: true }
       %>
     </li>
-    <li><a href="#"><div class="icon"><i class="fa fa-lg fa-shopping-cart"></i></div><%= t("project.side_bar.orders") %></a></li>
-    <li><a href="#"><div class="icon"><i class="fa fa-lg fa-check"></i></div><%= t("project.side_bar.tasks") %></a></li>
-    <li><a href="#"><div class="icon"><i class="fa fa-lg fa-archive"></i></div><%= t("project.side_bar.goods") %></a></li>
-    <li><a href="#"><div class="icon"><i class="fa fa-lg fa-phone"></i></div><%= t("project.side_bar.contacts") %></a></li>
-    <li><a href="#"><div class="icon"><i class="fa fa-lg fa-rub"></i></div><%= t("project.side_bar.finance") %></a></li>
-    <li>
+    <li class="sidebar-menu"><a href="#"><div class="icon"><i class="fa fa-lg fa-shopping-cart"></i></div><%= t("project.side_bar.orders") %></a></li>
+    <li class="sidebar-menu"><a href="#"><div class="icon"><i class="fa fa-lg fa-check"></i></div><%= t("project.side_bar.tasks") %></a></li>
+    <li class="sidebar-menu"><a href="#"><div class="icon"><i class="fa fa-lg fa-archive"></i></div><%= t("project.side_bar.goods") %></a></li>
+    <li class="sidebar-menu"><a href="#"><div class="icon"><i class="fa fa-lg fa-phone"></i></div><%= t("project.side_bar.contacts") %></a></li>
+    <li class="sidebar-menu"><a href="#"><div class="icon"><i class="fa fa-lg fa-rub"></i></div><%= t("project.side_bar.finance") %></a></li>
+    <li class="sidebar-menu">
       <%= link_to project_users_path(project_id: current_user.project.name) do %>
-        <div class="icon"><i class="fa fa-lg fa-users"></i></div><%= t("project.side_bar.staff") %>
+          <div class="icon"><i class="fa fa-lg fa-users"></i></div><%= t("project.side_bar.staff") %>
       <% end %>
     </li>
-    <li><a href="#"><div class="icon"><i class="fa fa-lg fa-bar-chart-o"></i></div><%= t("project.side_bar.reports") %></a></li>
-    <li class="dropdown">
+    <li class="sidebar-menu"><a href="#"><div class="icon"><i class="fa fa-lg fa-bar-chart-o"></i></div><%= t("project.side_bar.reports") %></a></li>
+    <li class="sidebar-menu dropdown">
       <a data-toggle="collapse" href="#sidebar-settings">
         <div class="icon">
           <i class="fa fa-lg fa-cog"></i>
@@ -33,5 +34,11 @@
         <li><a href="#"><%= t("project.side_bar.role_settings") %></a></li>
       </ul>
     </li>
+    <% if I18n.locale == I18n.default_locale %>
+        <p class="text-muted margin-top-40">ru | <%= link_to "en", { locale: 'en'} %></p>
+    <% else %>
+        <p class="text-muted margin-top-40"><%= link_to "ru", { locale: 'ru' } %> | en </p>
+    <%end%>
+    <p class="text-muted margin-top-20">Сделано нами<br>с заботой о вашем бизнесе</p>
   </ul>
 </div>

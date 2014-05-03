@@ -2,11 +2,11 @@
 @import "custom_margins";
 @import "custom_typography";
 $SidebarWidth: 250px;
-$SidebarBgColor: $MidWhiteSmoke;
-$SidebarUiBgColor: $MidWhiteSmoke;
-$SidebarLiColor: $MidWhiteSmoke;
-$SidebarLiHoverColor: $MidWhiteSmoke;
-$SidebarLiActivColor: $MidWhiteSmoke;
+$SidebarBgColor: $DimWhiteSmoke;
+$SidebarUiBgColor: $DimWhiteSmoke;
+$SidebarLiColor: $DimWhiteSmoke;
+$SidebarLiHoverColor: $DimWhiteSmoke;
+$SidebarLiActivColor: $DimWhiteSmoke;
 
 #wrapper {
   padding-left: 250px;
@@ -58,34 +58,30 @@ $SidebarLiActivColor: $MidWhiteSmoke;
   }
 }
 
-.sidebar-nav li a {
+.sidebar-nav li.sidebar-menu a {
   color: $DefaultText;
   display: block;
   text-decoration: none;
 }
 
-.sidebar-nav li a:hover {
+.sidebar-nav li.sidebar-menu a:hover {
   color: $White;
-  background: $Silver;
+  background: $Asbestos;
   text-decoration: none;
 }
 
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
+.sidebar-nav li.sidebar-menu a:active,
+.sidebar-nav li.sidebar-menu a:focus {
   text-decoration: none;
 }
 
 .sidebar-nav > .sidebar-brand {
-  height: 65px;
-  line-height: 60px;
-  font-size: 18px;
+  padding-top: 15px;
+  height: 100px;
   background: $SidebarBgColor;
 }
 
 .sidebar-nav > .sidebar-brand a {
-  font-size: 22px;
-  font-weight: 200;
-  color: $PinkFire;
   background: $SidebarBgColor;
 }
 
@@ -94,12 +90,22 @@ $SidebarLiActivColor: $MidWhiteSmoke;
   background: $SidebarBgColor;
 }
 
+.sidebar-nav p,
+.sidebar-nav span,
+.sidebar-nav small {
+  margin-left: 20px;
+}
+
 .content-header {
   line-height: 65px;
-  min-height: 65px;
+  min-height: 100px;
   margin-bottom: 30px;
+  background-color: $White;
   #btn-menu-toogle {
     border-bottom: 1px solid $DarkWhiteSmoke;
+    #menu-toggle {
+      border: none;
+    }
   }
   .title {
     color: $Concrete;
@@ -161,6 +167,15 @@ $SidebarLiActivColor: $MidWhiteSmoke;
     .title {
       height: 100px;
       line-height: 130px;
+    }
+  }
+
+  .page-content {
+    .inline-group {
+      .form-control,
+      input{
+        margin-bottom: 15px;
+      }
     }
   }
 }

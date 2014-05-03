@@ -23,6 +23,8 @@ ready = function() {
         $(this).find("i.angle").toggleClass("fa-angle-right fa-angle-down");
 
     });
+
+    $('.selectpicker').selectpicker();
 };
 
 $(document).ready(ready);

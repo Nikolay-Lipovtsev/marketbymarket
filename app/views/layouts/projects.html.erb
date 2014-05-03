@@ -29,22 +29,21 @@
   <div id="page-content-wrapper" class="container">
 
     <!-- Content header -->
-
-    <div class="content-header">
-      <div class="row">
+    <div class="row">
+      <div class="content-header">
 
         <!-- Current user -->
 
         <div id="current-user">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <%= image_tag("demo_avatar.jpg", alt: "Avatar", class: "img-circle avatar") %>
-            <p>Прохор Митрич</p>
+            <%= image_tag("demo_avatar.jpg", alt: "Avatar", class: "img-circle avatar-sm") %>
+            <p>&nbspПрохор Митрич</p>
             <i class="fa fa-caret-down fa-lg"></i>
           </a>
           <ul class="dropdown-menu pull-right" role="menu">
-            <li><a href="#"><i class="fa fa-lg fa-users"></i>Профиль</a></li>
+            <li><a href="#"><i class="fa fa-lg fa-users"></i><%= t("project.current_user.profile") %></a></li>
             <li class="divider"></li>
-            <li><a href="#"><i class="fa fa-lg fa-sign-out"></i>Выход</a></li>
+            <li><a href="#"><i class="fa fa-lg fa-sign-out"></i><%= t("project.current_user.signout") %></a></li>
           </ul>
         </div>
 
@@ -56,14 +55,14 @@
                   class="btn btn-default"
                   data-toggle="collapse"
                   data-target=".sidebar-collapse">
-            <i class="fa fa-bars fa-lg text-muted"></i>
+            <i class="fa fa-bars fa-2x text-muted"></i>
           </button>
         </div>
 
         <!-- Content title -->
 
         <div class="title col-sm-6">
-          <h1>Пользователи</h1>
+          <h1 class="lead"><%= yield(:header_title) %></h1>
         </div>
       </div>
     </div>

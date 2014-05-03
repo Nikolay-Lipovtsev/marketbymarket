@@ -99,3 +99,14 @@ ru:
       settings: 'Настройки'
       general_settings: 'Основные'
       role_settings: 'Роли и доступы'
+
+    current_user:
+
+      profile: 'Профиль'
+      signout: 'Выход'
+
+    users:
+
+      edit:
+        page_title: 'редактирование пользователя'
+        head_title: 'Редактирование пользователя'

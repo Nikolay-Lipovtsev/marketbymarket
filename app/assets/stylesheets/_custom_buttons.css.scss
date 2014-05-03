@@ -1,0 +1,33 @@
+@import "custom_colors";
+
+.btn-primary {
+  background-color: $DefaultColor;
+  border-color: $DefaultColor;
+
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    background-color: darken($DefaultColor, 12%);
+    border-color: darken($DefaultColor, 14%);
+  }
+
+  &.disabled,
+  &[disabled],
+  &.disabled:hover,
+  &.disabled:focus,
+  &.disabled:active,
+  &.disabled.active,
+  &[disabled]:hover,
+  &[disabled]:focus,
+  &[disabled]:active,
+  &[disabled].active,
+  fieldset[disabled] .btn-primary:hover,
+  fieldset[disabled] .btn-primary:focus,
+  fieldset[disabled] .btn-primary:active,
+  fieldset[disabled] .btn-primary.active {
+    background-color: $DefaultColor;
+    border-color: $DefaultColor;
+  }
+}
