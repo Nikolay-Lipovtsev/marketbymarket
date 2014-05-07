@@ -23,6 +23,13 @@ html, body {
   float: left;
 }
 
+.content-table {
+  border-top: 1px solid #ccc;;
+  margin-top: -45px;
+  background-color: $White;
+  padding: 40px 0px 0px 0px;
+}
+
 .panel-sm {
   max-width: 750px;
   margin-right: auto;

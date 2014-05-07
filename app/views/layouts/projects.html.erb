@@ -37,8 +37,8 @@
         <div id="current-user">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <%= image_tag("demo_avatar.jpg", alt: "Avatar", class: "img-circle avatar-sm") %>
-            <p>&nbspПрохор Митрич</p>
-            <i class="fa fa-caret-down fa-lg"></i>
+            <p><small>&nbspПрохор Митрич</small></p>
+            <i class="fa fa-angle-down fa-lg"></i>
           </a>
           <ul class="dropdown-menu pull-right" role="menu">
             <li><a href="#"><i class="fa fa-lg fa-users"></i><%= t("project.current_user.profile") %></a></li>
@@ -62,9 +62,22 @@
         <!-- Content title -->
 
         <div class="title col-sm-6">
-          <h1 class="lead"><%= yield(:header_title) %></h1>
+          <div class="row">
+            <div class="col-sm-12">
+              <h1 class="lead"><%= yield(:header_title) %></h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <%= link_to new_project_user_path do %>
+                  <i class="fa fa-plus fa-fw"></i>&nbspДобавить пользователя
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+    <div id="content-header-shadow" class="row">
     </div>
 
     <!-- Content -->

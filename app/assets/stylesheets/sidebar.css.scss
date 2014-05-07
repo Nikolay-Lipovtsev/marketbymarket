@@ -97,22 +97,30 @@ $SidebarLiActivColor: $DimWhiteSmoke;
 }
 
 .content-header {
-  line-height: 65px;
+  line-height: 30px;
   min-height: 100px;
-  margin-bottom: 30px;
   background-color: $White;
   #btn-menu-toogle {
     border-bottom: 1px solid $DarkWhiteSmoke;
+    height: 70px;
     #menu-toggle {
+      margin-top: 15px;
       border: none;
     }
   }
   .title {
-    color: $Concrete;
+    margin-top: 15px;
   }
+
+  h1 {
+    margin: 0;
+    display: inline-block;
+  }
+
   #current-user {
     height: 65px;
     position: absolute;
+    margin-top: 10px;
     right: 15px;
     z-index: 1;
     img,p {
@@ -128,10 +136,10 @@ $SidebarLiActivColor: $DimWhiteSmoke;
   }
 }
 
-.content-header h1 {
-  margin: 0;
-  line-height: 65px;
-  display: inline-block;
+#content-header-shadow {
+  height: 15px;
+  background: asset-url("content_header_shadow.png", image) top repeat-x;
+  margin-bottom: 30px
 }
 
 #menu-toggle {
@@ -159,14 +167,12 @@ $SidebarLiActivColor: $DimWhiteSmoke;
     transition: all 0.4s ease 0s;
   }
 
-  #menu-toggle {
-    display: inline-block;
-  }
+
 
   .content-header {
-    .title {
-      height: 100px;
-      line-height: 130px;
+    min-height: 160px;
+    #menu-toggle {
+      display: inline-block;
     }
   }
 

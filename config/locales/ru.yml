@@ -87,6 +87,14 @@ ru:
 
   project:
 
+    controls:
+
+      add: 'Добавить'
+      edit: 'Изменить'
+      delete: 'Удалить'
+      save: 'Сохранить'
+      cancel: 'Отменить'
+
     side_bar:
 
       orders: 'Заказы'
@@ -107,6 +115,17 @@ ru:
 
     users:
 
+      index:
+
+        page_title: 'пользователи'
+        head_title: 'Пользователи'
+
       edit:
+
         page_title: 'редактирование пользователя'
         head_title: 'Редактирование пользователя'
+
+      new:
+
+        page_title: 'новый пользователь'
+        head_title: 'Новый пользователь'

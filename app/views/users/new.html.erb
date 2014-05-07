@@ -6,7 +6,7 @@
     <div class="col-sm-12">
       <div class="panel panel-default panel-sm center-block">
         <div class="panel-body">
-          <%= form_for @user, url: new_project_user_path, html: { class: "form-horizontal", role: "form" } do |user_fields| %>
+          <%= form_for @user, url: {action: "create"}, html: { class: "form-horizontal", role: "form" } do |user_fields| %>
 
               <div class="row">
                 <div class="col-sm-12 margin-top-20 margin-bottom-15">
@@ -29,9 +29,10 @@
               <div class="form-group">
                 <label for="email" class="col-sm-3 control-label">Эл. почта*</label>
                 <div class="col-sm-7">
-                  <%= user_fields.text_field(   :email, class: "form-control",
+                  <%= user_fields.text_field(   :email,
+                                                class: "form-control",
                                                 id: "email",
-                                                placeholder: "Email",
+                                                placeholder: "Email пользователя",
                                                 maxlength: "50",
                       ) %>
                 </div>
@@ -39,7 +40,8 @@
               <div class="form-group">
                 <label for="password" class="col-sm-3 control-label">Пароль*</label>
                 <div class="col-sm-7">
-                  <%= user_fields.text_field(   :password, class: "form-control",
+                  <%= user_fields.text_field(   :password,
+                                                class: "form-control",
                                                 id: "password",
                                                 placeholder: "Придумайте сложный, но запоминающийся пароль",
                                                 maxlength: "50",
@@ -49,7 +51,8 @@
               <div class="form-group">
                 <label for="password_confirmation" class="col-sm-3 control-label">Ещё раз пароль*</label>
                 <div class="col-sm-7">
-                  <%= user_fields.text_field(   :password_confirmation, class: "form-control",
+                  <%= user_fields.text_field(   :password_confirmation,
+                                                class: "form-control",
                                                 id: "password_confirmation",
                                                 placeholder: "Повторите пароль ещё раз",
                                                 maxlength: "50",
@@ -74,19 +77,19 @@
               <div class="form-group">
                 <label for="inputLastName" class="col-sm-3 control-label">Фамилия*</label>
                 <div class="col-sm-7">
-                  <input type="email" class="form-control" id="inputLastName" placeholder="Email">
+                  <input type="email" class="form-control" id="inputLastName" placeholder="Например: Иванов">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputFirstName" class="col-sm-3 control-label">Имя*</label>
                 <div class="col-sm-7">
-                  <input type="email" class="form-control" id="inputFirstName" placeholder="Email">
+                  <input type="email" class="form-control" id="inputFirstName" placeholder="Например: Иван">
                 </div>
               </div>
               <div class="form-group">
                 <label for="inputMiddleName" class="col-sm-3 control-label">Отчество</label>
                 <div class="col-sm-7">
-                  <input type="email" class="form-control" id="inputMiddleName" placeholder="Email">
+                  <input type="email" class="form-control" id="inputMiddleName" placeholder="Например: Иванович">
                 </div>
               </div>
               <div class="form-group">
@@ -109,7 +112,7 @@
               <div class="form-group">
                 <label for="inputEmail3" class="col-sm-3 control-label">Дата рождения*</label>
                 <div class="col-sm-7">
-                  <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                  <input type="email" class="form-control" id="inputEmail3" placeholder="Укажте дату рождения пользователя">
                 </div>
               </div>
               <div class="col-sm-12 border-row margin-bottom-40 margin-top-40"></div>

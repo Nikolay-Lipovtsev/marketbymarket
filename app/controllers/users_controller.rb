@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.new(user_param)
     if @user.save
       #save_user_id
-      redirect_to @project
+      redirect_to @user
     else
       render 'new'
     end
