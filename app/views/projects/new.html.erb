@@ -1,11 +1,11 @@
-<% provide(:title, 'регистрация') %>
+<% provide(:title, t("sign_up.title")) %>
 
 <div class="container margin-top-40 margin-bottom-80">
   <div class="row">
     <div class="col-md-6 center-block text-center">
       <%= link_to image_tag('main_logo.png', alt: "Market by market"), root_path %>
       <h3 class="margin-top-40 text-slim">
-        Зарегистрироваться - это просто!
+        <%= t('sign_up.page_head') %>
       </h3>
     </div>
   </div>
@@ -16,29 +16,25 @@
           <div class="row margin-top-20">
             <div class="col-md-12">
               <p class="text-muted">
-                Просто придумайте название вашего проекта, укажите почту и пароль.
+                <%= t('sign_up.panel_head') %>
               </p>
             </div>
           </div>
           <%= form_for(@project, html: { role: "form" }) do |project_fields| %>
             <div class="row margin-top-20">
               <div class="col-md-12">
-                <div class="form-group">
-                  <div class="input-group">
-                    <span class="input-group-addon">marketbymarket.ru/</span>
+                <div class="form-group left-inner-addon-projectname">
+                    <i class="fa fa-home fa-fw text-muted"></i>
+                    <span class="text-primary">marketbymarket.ru/</span>
                     <%= project_fields.text_field(:name, class: "form-control",
                                                   id: "name",
-                                                  placeholder: "Название проекта",
+                                                  placeholder: "#{t('sign_up.name_placeholder')}",
                                                   maxlength: "50",
                                                   data: { container: "body",
                                                           toggle: "popover",
                                                           placement: "bottom",
-                                                          content: 'Выберите запоминающийся адрес
-                                                          для названия вашего проекта.
-                                                          Название может содержать латинские буквы, знак "-"
-                                                          и его длина не должна превышать 20 символов.
-                                                          Например: marketbymarket.ru/my-company/' }) %>
-                  </div>
+                                                          content: "#{t('sign_up.name_popover')}"}) %>
+
                 </div>
               </div>
             </div>
@@ -47,45 +43,47 @@
 
               <div class="row">
                 <div class="col-md-12">
-                  <div class="form-group">
+                  <div class="form-group left-inner-addon">
+                    <i class="fa fa-envelope fa-fw text-muted"></i>
                     <%= users_fields.email_field(:email, class: "form-control",
                                                  id: "email",
-                                                 placeholder: "Адрес электронной почты",
+                                                 placeholder: "#{t('sign_up.email_placeholder')}",
                                                  maxlength: "50",
                                                  data: { container: "body",
                                                          toggle: "popover",
                                                          placement: "bottom",
-                                                         content: "Нужен для подтверждения регистрации,
-                                                         а также на случай обратной связи." }) %>
+                                                         content: "#{t('sign_up.email_popover')}" }) %>
                   </div>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-12">
-                  <div class="form-group">
+                  <div class="form-group left-inner-addon">
+                    <i class="fa fa-lock fa-fw text-muted"></i>
                     <%= users_fields.password_field(:password, class: "form-control",
                                                     id: "password",
-                                                    placeholder: "Пароль",
+                                                    placeholder: "#{t('sign_up.password_placeholder')}",
                                                     data: { container: "body",
                                                             toggle: "popover",
                                                             placement: "bottom",
-                                                            content: "В целях безопасности длина пароля
-                                                            не может быть меньше 8 символов." }) %>
+                                                            content: "#{t('sign_up.password_popover')}" }) %>
                   </div>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-12">
-                  <div class="form-group">
+                  <div class="form-group left-inner-addon">
+                    <i class="fa fa-lock fa-fw text-muted"></i>
                     <%= users_fields.password_field(:password_confirmation, class: "form-control",
                                                     id: "password-confirmation",
-                                                    placeholder: "Ещё раз пароль",
+                                                    placeholder: "#{t('sign_up.password_confirmation_placeholder')}",
                                                     data: { container: "body",
                                                             toggle: "popover",
                                                             placement: "bottom",
-                                                            content: "Введите пароль ещё раз." }) %>
+                                                            content: "#{t('sign_up.password_confirmation_popover')}"
+                                                          }) %>
                   </div>
                 </div>
               </div>
@@ -97,7 +95,7 @@
                 <div class="checkbox">
                   <label>
                     <%= fields_for :additional do |additional_fields| %>
-                        <%= additional_fields.check_box :remember_me %> Запомнить меня
+                        <%= additional_fields.check_box :remember_me %> <%= t('sign_up.remember_me_check_box') %>
                     <% end %>
                   </label>
                 </div>
@@ -109,7 +107,7 @@
               <div class="col-md-12">
                 <button type="button" class="btn btn-primary"
                         data-toggle="modal" data-target="#request-for-agreement">
-                  Sign up
+                  <%= t('sign_up.sign_up_button') %>
                 </button>
               </div>
             </div>
@@ -121,15 +119,19 @@
                 <div class="modal-content">
                   <div class="modal-body">
                     <p>
-                      Нажимая кнопку "Зарегистрироваться", вы соглашаетесь с нашими
-                      <%= link_to "Условиями пользовательского соглашения", "#" %> и подтверждаете,
-                      что ознакомились с нашей <%= link_to "Политикой использования данных", "#" %>.
+                      <%=
+                          raw t("sign_up.modal_request_for_agreement",
+                          terms_link: link_to(t("sign_up.terms_link_text"), "#"),
+                          usage_policy_link: link_to(t("sign_up.usage_policy_link_text"), "#"))
+                      %>
                     </p>
                   </div>
 
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Не согласен</button>
-                    <%= project_fields.submit "Зарегистрироваться", class: "btn btn-primary" %>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                      <%= t("sign_up.disagree_button") %>
+                    </button>
+                    <%= project_fields.submit t("sign_up.agree_button"), class: "btn btn-primary" %>
                   </div>
                 </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->
@@ -145,9 +147,13 @@
   <div class="row">
     <div class="col-md-6 center-block">
       <div class="col-md-12 center-block">
-      <small>
-        Я уже зарегистрирован и мне нужно просто <%= link_to "войти", "#" %> в свой аккаунт.
-      </small>
-    </div><!-- /.col-md-5 -->
+        <small>
+          <%=
+              raw t("sign_up.already_sign_up",
+                    sign_in_link: link_to(t("sign_up.sign_in_link_text"), signin_path))
+          %>
+        </small>
+      </div>
+    </div><!-- /.col-md-6 -->
   </div><!-- /.row -->
 </div><!-- /.container -->

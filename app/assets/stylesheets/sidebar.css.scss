@@ -2,23 +2,30 @@
 @import "custom_margins";
 @import "custom_typography";
 $SidebarWidth: 250px;
-
+$SidebarBgColor: $DimWhiteSmoke;
+$SidebarUiBgColor: $DimWhiteSmoke;
+$SidebarLiColor: $DimWhiteSmoke;
+$SidebarLiHoverColor: $DimWhiteSmoke;
+$SidebarLiActivColor: $DimWhiteSmoke;
 
 #wrapper {
-  padding-left: $SidebarWidth;
+  padding-left: 250px;
   transition: all 0.4s ease 0s;
 }
 
 #sidebar-wrapper {
-  margin-left: -$SidebarWidth;
+  margin-left: -250px;
   left: $SidebarWidth;
   width: $SidebarWidth;
-  background: $DarkBlue;
+  background: $SidebarBgColor;
   position: fixed;
   height: 100%;
   overflow-y: auto;
   z-index: 1000;
   transition: all 0.4s ease 0s;
+  li {
+    background: $SidebarUiBgColor;
+  }
 }
 
 #page-content-wrapper {
@@ -37,66 +44,106 @@ $SidebarWidth: 250px;
 .sidebar-nav li {
   line-height: 40px;
   text-indent: 20px;
-  background: $BlackBlue;
-  i {
+  list-style: none;
+  .icon {
+    width: 34px;
+    float: left;
+  }
+  .fa {
     display: inline;
+    padding-right: 10px;
+  }
+  .angle {
+    line-height: 40px;
   }
 }
 
-.sidebar-nav li a {
-  color: $Silver;
+.sidebar-nav li.sidebar-menu a {
+  color: $DefaultText;
   display: block;
   text-decoration: none;
-  i {
-    margin-right: 15px;
-  }
 }
 
-.sidebar-nav li a:hover {
-  color: $Turquoise;
-  background: $MidnightBlue;
+.sidebar-nav li.sidebar-menu a:hover {
+  color: $White;
+  background: $Asbestos;
   text-decoration: none;
 }
 
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
+.sidebar-nav li.sidebar-menu a:active,
+.sidebar-nav li.sidebar-menu a:focus {
   text-decoration: none;
 }
 
 .sidebar-nav > .sidebar-brand {
-  height: 65px;
-  line-height: 60px;
-  font-size: 18px;
-  background: $DarkBlue;
+  padding-top: 15px;
+  height: 100px;
+  background: $SidebarBgColor;
 }
 
 .sidebar-nav > .sidebar-brand a {
-  color: $Silver;
+  background: $SidebarBgColor;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
-  color: $White;
-  background: none;
+  color: #fff;
+  background: $SidebarBgColor;
+}
+
+.sidebar-nav p,
+.sidebar-nav span,
+.sidebar-nav small {
+  margin-left: 20px;
 }
 
 .content-header {
-  height: 65px;
-  line-height: 65px;
+  line-height: 30px;
+  min-height: 100px;
+  background-color: $White;
+  #btn-menu-toogle {
+    border-bottom: 1px solid $DarkWhiteSmoke;
+    height: 70px;
+    #menu-toggle {
+      margin-top: 15px;
+      border: none;
+    }
+  }
+  .title {
+    margin-top: 15px;
+  }
+
+  h1 {
+    margin: 0;
+    display: inline-block;
+  }
+
+  #current-user {
+    height: 65px;
+    position: absolute;
+    margin-top: 10px;
+    right: 15px;
+    z-index: 1;
+    img,p {
+      display: inline-block;
+    }
+    a, a:hover, a:focus {
+      text-decoration: none;
+      color: $DefaultText;
+    }
+    .dropdown-menu .fa {
+      padding-right: 10px;
+    }
+  }
 }
 
-.content-header h1 {
-  margin: 0;
-  margin-left: 20px;
-  line-height: 65px;
-  display: inline-block;
+#content-header-shadow {
+  height: 15px;
+  background: asset-url("content_header_shadow.png", image) top repeat-x;
+  margin-bottom: 30px
 }
 
 #menu-toggle {
   display: none;
-}
-
-.inset {
-  padding: 20px;
 }
 
 @media (max-width:767px) {
@@ -120,12 +167,21 @@ $SidebarWidth: 250px;
     transition: all 0.4s ease 0s;
   }
 
-  #menu-toggle {
-    display: inline-block;
+
+
+  .content-header {
+    min-height: 160px;
+    #menu-toggle {
+      display: inline-block;
+    }
   }
 
-  .inset {
-    padding: 15px;
+  .page-content {
+    .inline-group {
+      .form-control,
+      input{
+        margin-bottom: 15px;
+      }
+    }
   }
-
 }

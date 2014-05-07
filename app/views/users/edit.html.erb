@@ -1,0 +1,159 @@
+<% provide(:title, t("project.users.new.page_title")) %>
+<% provide(:header_title, t("project.users.new.head_title")) %>
+
+<div class="page-content inset">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default panel-sm center-block">
+        <div class="panel-body">
+          <%= form_for @user, url: new_project_user_path, html: { class: "form-horizontal", role: "form" } do |user_fields| %>
+
+              <div class="row">
+                <div class="col-sm-12 margin-top-20 margin-bottom-15">
+                  <%= image_tag("user_no_foto.jpg", alt: "Avatar", class: "img-circle avatar-lg center-block") %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 text-center">
+                  <%= link_to root_path do %>
+                      <i class="fa fa-pencil fa-fw"></i><small>&nbsp<%= t("project.controls.edit") %></small>
+                  <% end %>
+                </div>
+              </div>
+              <div class="col-sm-12 border-row margin-bottom-40 margin-top-40"></div>
+              <div class="row">
+                <div class="col-sm-9 col-sm-offset-3 margin-bottom-20 text-muted">
+                  <h4 class="lead">Аккаунт</h4>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="col-sm-3 control-label">Эл. почта*</label>
+                <div class="col-sm-7">
+                  <%= user_fields.text_field(   :email, class: "form-control",
+                                                id: "email",
+                                                placeholder: "Email",
+                                                maxlength: "50",
+                      ) %>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password" class="col-sm-3 control-label">Пароль*</label>
+                <div class="col-sm-7">
+                  <%= user_fields.text_field(   :password, class: "form-control",
+                                                id: "password",
+                                                placeholder: "Придумайте сложный, но запоминающийся пароль",
+                                                maxlength: "50",
+                      ) %>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password_confirmation" class="col-sm-3 control-label">Ещё раз пароль*</label>
+                <div class="col-sm-7">
+                  <%= user_fields.text_field(   :password_confirmation, class: "form-control",
+                                                id: "password_confirmation",
+                                                placeholder: "Повторите пароль ещё раз",
+                                                maxlength: "50",
+                      ) %>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword" class="col-sm-3 control-label">Язык интерфейса</label>
+                <div class="col-sm-7">
+                  <select class="form-control">
+                    <option>Русский</option>
+                    <option>English</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-12 border-row margin-bottom-40 margin-top-40"></div>
+              <div class="row">
+                <div class="col-sm-9 col-sm-offset-3 margin-bottom-20 text-muted">
+                  <h4 class="lead">Информация о пользователе</h4>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputLastName" class="col-sm-3 control-label">Фамилия*</label>
+                <div class="col-sm-7">
+                  <input type="email" class="form-control" id="inputLastName" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputFirstName" class="col-sm-3 control-label">Имя*</label>
+                <div class="col-sm-7">
+                  <input type="email" class="form-control" id="inputFirstName" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputMiddleName" class="col-sm-3 control-label">Отчество</label>
+                <div class="col-sm-7">
+                  <input type="email" class="form-control" id="inputMiddleName" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="sex" class="col-sm-3 control-label">Пол*</label>
+                <div class="col-sm-7">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                      Мужчина
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                      Женщина
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-3 control-label">Дата рождения*</label>
+                <div class="col-sm-7">
+                  <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                </div>
+              </div>
+              <div class="col-sm-12 border-row margin-bottom-40 margin-top-40"></div>
+              <div class="row">
+                <div class="col-sm-9 col-sm-offset-3 margin-bottom-20 text-muted">
+                  <h4 class="lead">Дополнительные адреса эл. почты</h4>
+                </div>
+              </div>
+              <div class="form-group inline-group">
+                <div class="col-sm-3 col-sm-offset-3">
+                  <select class="form-control">
+                    <option>Домашний</option>
+                    <option>Рабочий</option>
+                    <option>Личный</option>
+                    <option>Другой</option>
+                  </select>
+                </div>
+                <label for="inputKey" class="sr-only">Email</label>
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="inputKey" placeholder="Email">
+                </div>
+                <div class="col-sm-2 control-label">
+                  <%= link_to root_path, class: "pull-left" do %>
+                      <i class="fa fa-trash-o fa-fw"></i><small>&nbsp<%= t("project.controls.delete") %></small>
+                  <% end %>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-7 col-sm-offset-3">
+                  <%= link_to root_path do %>
+                      <i class="fa fa-plus fa-fw"></i><small>&nbsp<%= t("project.controls.add") %></small>
+                  <% end %>
+                </div>
+              </div>
+              <div class="col-sm-12 border-row margin-bottom-40 margin-top-40"></div>
+              <div class="form-group">
+                <div class="col-sm-7 col-sm-offset-3">
+                  <%= user_fields.submit t("project.controls.save"), class: "btn btn-large btn-primary" %>
+                  <button type="button" class="btn btn-default" data-dismiss="modal"><%= t("project.controls.cancel") %></button>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,14 +7,14 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find_by(name: params[:name])
+    @project = Project.find_by_name(params[:id])
   end
 
   def create
     @project = Project.new(project_params)
     if @project.save
       add_created_user
-      sign_in @user
+      sign_in @project.users.first
       redirect_to @project
     else
       render 'new'
@@ -24,7 +24,10 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:name, users_attributes: [:email, :password, :password_confirmation])
+    params.require(:project).permit(:name, users_attributes: [:email,
+                                                              :password,
+                                                              :password_confirmation,
+                                                              :remember_token])
   end
 
   #Set created_user and updated_user attr after save new project and user without timestamps
@@ -37,7 +40,7 @@ class ProjectsController < ApplicationController
                           updated_user: @user.id,
                           users_attributes: { id: @user.id,
                                               created_user: @user.id,
-                                              updated_user: @user.id } } }
+                                              updated_user: @user.id }}}
     @project.update params[:project]
     User.record_timestamps = true
     Project.record_timestamps = true

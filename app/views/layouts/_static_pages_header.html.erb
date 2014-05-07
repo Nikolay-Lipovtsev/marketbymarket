@@ -12,27 +12,25 @@
 
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Главная", root_path %></li>
-        <li><%= link_to "О проекте", '#' %></li>
-        <li><%= link_to "Партнеры", '#' %></li>
-        <li><%= link_to "Контакты", '#' %></li>
+        <li><%= link_to t("static_pages.header.home"), root_path %></li>
+        <li><%= link_to t("static_pages.header.about"), '#' %></li>
+        <li><%= link_to t("static_pages.header.support"), '#' %></li>
+        <li><%= link_to t("static_pages.header.contacts"), '#' %></li>
         <% if signed_in? %>
-            <li><%= link_to "Проект", '#' %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Аккаунт <b class="caret"></b>
+                <%= t("static_pages.header.account") %> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Профиль", "#" %></li>
-                <li><%= link_to "Настройки", '#' %></li>
+                <li><%= link_to current_user.project.name, current_user.project, data: { no_turbolink: true } %></li>
                 <li class="divider"></li>
                 <li>
-                  <%= link_to "Выйти", signout_path, method: :delete %>
+                  <%= link_to t("static_pages.header.sign_out_link"), signout_path, method: :delete %>
                 </li>
               </ul>
             </li>
         <% else %>
-            <li><%= link_to "Войти", signin_path %></li>
+            <li><%= link_to t("static_pages.header.sign_in_link"), signin_path %></li>
         <% end %>
       </ul>
     </div><!--/.nav-collapse -->

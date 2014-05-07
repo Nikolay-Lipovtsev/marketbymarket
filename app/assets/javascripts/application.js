@@ -16,3 +16,9 @@
 
 // Loads all Bootstrap javascripts
 //= require bootstrap
+//= require bootstrap/alert
+//= require bootstrap/dropdown
+//= require bootstrap-select
+
+
+

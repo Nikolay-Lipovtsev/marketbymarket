@@ -18,3 +18,29 @@
     border-top: 1px solid $Silver;
   }
 }
+
+.bg-img {
+  background: asset-url("bg_sign.jpg", image) bottom no-repeat;
+  background-size: cover;
+}
+
+/* Inputs with icons inside */
+.left-inner-addon-projectname {
+  position: relative;
+}
+
+.left-inner-addon-projectname input {
+  padding-left: 158px;
+}
+
+.left-inner-addon-projectname i {
+  position: absolute;
+  padding: 10px 12px;
+  pointer-events: none;
+}
+
+.left-inner-addon-projectname span {
+  position: absolute;
+  padding: 7px 30px;
+  pointer-events: none;
+}

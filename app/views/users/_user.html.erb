@@ -1,0 +1,14 @@
+<tr>
+  <td>
+    <%= image_tag("user_no_foto.jpg", alt: "Avatar", class: "img-circle avatar-sm") %>
+  <td>
+    <%= user.email %>
+  </td>
+  <td>
+    <p>Дата создания</p>
+    <%= l user.created_at, :format => :short %>
+  </td>
+  <td>
+    <%= link_to "Изменить", [:edit, current_user.project, user] %>
+  </td>
+</tr>

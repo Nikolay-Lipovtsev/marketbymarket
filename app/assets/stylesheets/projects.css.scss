@@ -1,9 +1,11 @@
 @import "custom_colors";
 @import "custom_margins";
 @import "custom_typography";
+@import "custom_img";
 
 html, body {
   overflow-y: scroll;
+  background-color: $WhiteSmoke;
 }
 
 #wrapper {
@@ -19,4 +21,21 @@ html, body {
 #content {
   background-color: $Clouds;
   float: left;
+}
+
+.content-table {
+  border-top: 1px solid #ccc;;
+  margin-top: -45px;
+  background-color: $White;
+  padding: 40px 0px 0px 0px;
+}
+
+.panel-sm {
+  max-width: 750px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.panel-sm {
+  max-width: 750px;
 }

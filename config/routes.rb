@@ -12,7 +12,10 @@ Marketbymarket::Application.routes.draw do
   match '/signout',   to: 'sessions#destroy', via: :delete
 
   #Projects routes
-  get   '/:name',     to: 'projects#show', as: :project
+  resources :projects, path: '/', only: [:show] do
+    resources :users
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
