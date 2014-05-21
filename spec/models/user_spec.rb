@@ -3,7 +3,6 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  project_id      :integer
 #  email           :string(255)
 #  password_digest :string(255)
 #  created_user    :integer
@@ -17,7 +16,6 @@ require 'spec_helper'
 
 describe User do
 
-  #before { @user = User.new(email: "User@example.com", password: "foobar", password_confirmation: "foobar") }
   before { @user = FactoryGirl.build :user }
 
   subject { @user }

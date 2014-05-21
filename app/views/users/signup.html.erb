@@ -20,32 +20,13 @@
               </p>
             </div>
           </div>
-          <%= form_for(@project, html: { role: "form" }) do |project_fields| %>
-            <div class="row margin-top-20">
-              <div class="col-md-12">
-                <div class="form-group left-inner-addon-projectname">
-                    <i class="fa fa-home fa-fw text-muted"></i>
-                    <span class="text-primary">marketbymarket.ru/</span>
-                    <%= project_fields.text_field(:name, class: "form-control",
-                                                  id: "name",
-                                                  placeholder: "#{t('sign_up.name_placeholder')}",
-                                                  maxlength: "50",
-                                                  data: { container: "body",
-                                                          toggle: "popover",
-                                                          placement: "bottom",
-                                                          content: "#{t('sign_up.name_popover')}"}) %>
-
-                </div>
-              </div>
-            </div>
-
-            <%= project_fields.fields_for :users do |users_fields| %>
+          <%= form_for(@user, html: { role: "form" }) do |user_fields| %>
 
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group left-inner-addon">
                     <i class="fa fa-envelope fa-fw text-muted"></i>
-                    <%= users_fields.email_field(:email, class: "form-control",
+                    <%= user_fields.email_field(:email, class: "form-control",
                                                  id: "email",
                                                  placeholder: "#{t('sign_up.email_placeholder')}",
                                                  maxlength: "50",
@@ -61,7 +42,7 @@
                 <div class="col-md-12">
                   <div class="form-group left-inner-addon">
                     <i class="fa fa-lock fa-fw text-muted"></i>
-                    <%= users_fields.password_field(:password, class: "form-control",
+                    <%= user_fields.password_field(:password, class: "form-control",
                                                     id: "password",
                                                     placeholder: "#{t('sign_up.password_placeholder')}",
                                                     data: { container: "body",
@@ -76,7 +57,7 @@
                 <div class="col-md-12">
                   <div class="form-group left-inner-addon">
                     <i class="fa fa-lock fa-fw text-muted"></i>
-                    <%= users_fields.password_field(:password_confirmation, class: "form-control",
+                    <%= user_fields.password_field(:password_confirmation, class: "form-control",
                                                     id: "password-confirmation",
                                                     placeholder: "#{t('sign_up.password_confirmation_placeholder')}",
                                                     data: { container: "body",
@@ -87,8 +68,6 @@
                   </div>
                 </div>
               </div>
-
-            <% end %><!-- /fields_for users -->
 
             <div class="row">
               <div class="col-md-12">
@@ -131,7 +110,7 @@
                     <button type="button" class="btn btn-default" data-dismiss="modal">
                       <%= t("sign_up.disagree_button") %>
                     </button>
-                    <%= project_fields.submit t("sign_up.agree_button"), class: "btn btn-primary" %>
+                    <%= user_fields.submit t("sign_up.agree_button"), class: "btn btn-primary" %>
                   </div>
                 </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->

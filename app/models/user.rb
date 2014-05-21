@@ -3,7 +3,6 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  project_id      :integer
 #  email           :string(255)
 #  password_digest :string(255)
 #  created_user    :integer
@@ -17,8 +16,12 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  belongs_to :project
-  has_one    :user_profile, dependent: :destroy
+  has_many :created_user, class_name: "User", foreign_key: "created_user"
+  belongs_to :created_user, class_name: "User"
+
+  has_many :user_projects, dependent: :destroy
+  has_many :projects, through: :user_projects, dependent: :destroy
+  has_many :people, as: :personable, dependent: :destroy
 
   before_save { email.downcase! }
   before_save :create_remember_token
@@ -32,7 +35,7 @@ class User < ActiveRecord::Base
 
   private
 
-    def create_remember_token
-      self.remember_token = SecureRandom.urlsafe_base64
-    end
+  def create_remember_token
+    self.remember_token = SecureRandom.urlsafe_base64
+  end
 end

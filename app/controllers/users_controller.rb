@@ -5,6 +5,11 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def signup
+    @user = User.new
+    render layout: 'signup'
+  end
+
   def new
     @user = User.new
   end
@@ -16,7 +21,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_param)
     if @user.save
-      #save_user_id
+      save_user_id
       redirect_to @user
     else
       render 'new'

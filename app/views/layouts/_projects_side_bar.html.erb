@@ -16,7 +16,7 @@
     <li class="sidebar-menu"><a href="#"><div class="icon"><i class="fa fa-lg fa-phone"></i></div><%= t("project.side_bar.contacts") %></a></li>
     <li class="sidebar-menu"><a href="#"><div class="icon"><i class="fa fa-lg fa-rub"></i></div><%= t("project.side_bar.finance") %></a></li>
     <li class="sidebar-menu">
-      <%= link_to project_users_path(project_id: current_user.project.name) do %>
+      <%= link_to users_path do %>
           <div class="icon"><i class="fa fa-lg fa-users"></i></div><%= t("project.side_bar.staff") %>
       <% end %>
     </li>

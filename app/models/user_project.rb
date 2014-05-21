@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: project_users
+# Table name: user_projects
 #
 #  id           :integer          not null, primary key
 #  user_id      :integer
@@ -11,8 +11,8 @@
 #  updated_at   :datetime
 #
 
-require 'spec_helper'
+class UserProject < ActiveRecord::Base
 
-describe ProjectUser do
-  pending "add some examples to (or delete) #{__FILE__}"
+  belongs_to :user
+  belongs_to :project
 end
