@@ -43,7 +43,7 @@
           <ul class="dropdown-menu pull-right" role="menu">
             <li><a href="#"><i class="fa fa-lg fa-users"></i><%= t("project.current_user.profile") %></a></li>
             <li class="divider"></li>
-            <li><a href="#"><i class="fa fa-lg fa-sign-out"></i><%= t("project.current_user.signout") %></a></li>
+            <li><%= link_to t("project.current_user.signout"), signout_path, method: "delete" %></li>
           </ul>
         </div>
 

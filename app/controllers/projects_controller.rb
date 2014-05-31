@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 
   def signup
     @project = Project.new
-    @project.users.build
+    @project.people.build
   end
 
   def show

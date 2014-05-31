@@ -1,16 +1,10 @@
-class UsersController < ApplicationController
-  layout "projects"
+class SignupController < ApplicationController
 
-  def index
-    @users = User.all
-  end
+  layout "signup"
 
   def new
     @user = User.new
-  end
-
-  def show
-    @user = User.find(params[:id])
+    @user.build_person
   end
 
   def create
@@ -19,18 +13,15 @@ class UsersController < ApplicationController
       save_user_id
       redirect_to @user
     else
-      render "new"
+      render "signup/new"
     end
-  end
-
-  def edit
-    @user = User.find(params[:id])
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation, people_attributes: [:last_name,
+                                                                                                :first_name])
   end
 
   #Set created_user and updated_user attr after save user without timestamps
