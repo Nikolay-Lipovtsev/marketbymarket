@@ -1,177 +1,66 @@
 <% provide(:title, t("sign_up.title")) %>
+<% provide(:page_header_title, t('sign_up.page_header_title')) %>
+<% provide(:panel_header_title, t('sign_up.panel_header_title')) %>
+<% provide(:panel_footer_link, raw(t("sign_up.panel_footer_link",
+                                     sign_in_link: link_to(t("sign_up.sign_in_link_text"), signin_path)))) %>
 
-<div class="container margin-top-40 margin-bottom-80">
-  <div class="row">
-    <div class="col-md-6 center-block text-center">
-      <%= link_to image_tag('main_logo.png', alt: "Market by market"), root_path %>
-      <h3 class="margin-top-40 text-slim">
-        <%= t('sign_up.page_head') %>
-      </h3>
-    </div>
-  </div>
-  <div class="row margin-top-20">
-    <div class="col-md-6 center-block">
-      <div class="panel panel-default">
-        <div class="panel-body sign-up-form">
-          <div class="row margin-top-20">
-            <div class="col-md-12">
-              <p class="text-muted">
-                <%= t('sign_up.panel_head') %>
-              </p>
-            </div>
-          </div>
-          <%= form_for(@user, url: signup_path, html: { role: "form" }) do |user_fields| %>
-              <%= user_fields.fields_for :people do |person_fields| %>
+<%= form_for(@user, url: signup_path, html: { role: "form" }) do |user_fields| %>
+    <%= user_fields.fields_for :person do |person_fields| %>
 
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group left-inner-addon">
-                        <i class="fa fa-user fa-fw text-muted"></i>
-                        <%= person_fields.text_field(:last_name, class: "form-control",
-                                                     id: "last_name",
-                                                     placeholder: "#{t('sign_up.last_name_placeholder')}",
-                                                     data: { container: "body",
-                                                             toggle: "popover",
-                                                             placement: "bottom",
-                                                             content: "#{t('sign_up.last_name_popover')}" }) %>
-                      </div>
-                    </div>
-                  </div>
+        <%= sign_page_input_tag("sign_up", person_fields, :last_name, "user") %>
+        <%= sign_page_input_tag("sign_up", person_fields, :first_name, "user") %>
+        <%= sign_page_input_tag("sign_up", person_fields, :birthday, "calendar", "date", "6", false) %>
 
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group left-inner-addon">
-                        <i class="fa fa-user fa-fw text-muted"></i>
-                        <%= person_fields.text_field(:first_name, class: "form-control",
-                                                     id: "first_name",
-                                                     placeholder: "#{t('sign_up.first_name_placeholder')}",
-                                                     data: { container: "body",
-                                                             toggle: "popover",
-                                                             placement: "bottom",
-                                                             content: "#{t('sign_up.first_name_popover')}" }) %>
-                      </div>
-                    </div>
-                  </div>
+    <% end %><!-- /fields_for person -->
 
-              <% end %><!-- /fields_for users -->
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group left-inner-addon">
-                    <i class="fa fa-envelope fa-fw text-muted"></i>
-                    <%= user_fields.email_field(:email, class: "form-control",
-                                                id: "email",
-                                                placeholder: "#{t('sign_up.email_placeholder')}",
-                                                maxlength: "50",
-                                                data: { container: "body",
-                                                        toggle: "popover",
-                                                        placement: "bottom",
-                                                        content: "#{t('sign_up.email_popover')}" }) %>
-                    <% if @user.errors[:email].any? %>
-                        <ul>
-                          <% @user.errors[:email].each do |msg| %>
-                              <li><%= msg %></li>
-                          <% end %>
-                        </ul>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
+    <%= sign_page_input_tag("sign_up", user_fields, :email, "envelope", "email") %>
+    <%= sign_page_input_tag("sign_up", user_fields, :password, "lock", "password") %>
+    <%= sign_page_input_tag("sign_up", user_fields, :password_confirmation, "lock", "password") %>
 
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group left-inner-addon">
-                    <i class="fa fa-lock fa-fw text-muted"></i>
-                    <%= user_fields.password_field(:password, class: "form-control",
-                                                   id: "password",
-                                                   placeholder: "#{t('sign_up.password_placeholder')}",
-                                                   data: { container: "body",
-                                                           toggle: "popover",
-                                                           placement: "bottom",
-                                                           content: "#{t('sign_up.password_popover')}" }) %>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group left-inner-addon">
-                    <i class="fa fa-lock fa-fw text-muted"></i>
-                    <%= user_fields.password_field(:password_confirmation, class: "form-control",
-                                                   id: "password-confirmation",
-                                                   placeholder: "#{t('sign_up.password_confirmation_placeholder')}",
-                                                   data: { container: "body",
-                                                           toggle: "popover",
-                                                           placement: "bottom",
-                                                           content: "#{t('sign_up.password_confirmation_popover')}"
-                                                   }) %>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="checkbox">
-                    <label>
-                      <%= fields_for :additional do |additional_fields| %>
-                          <%= additional_fields.check_box :remember_me %> <%= t('sign_up.remember_me_check_box') %>
-                      <% end %>
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row margin-top-20 margin-bottom-20">
-                <!-- Button trigger request for agreement -->
-                <div class="col-md-12">
-                  <button type="button" class="btn btn-primary"
-                          data-toggle="modal" data-target="#request-for-agreement">
-                    <%= t('sign_up.sign_up_button') %>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Modal request for agreement -->
-              <div class="modal fade" id="request-for-agreement" tabindex="-1" role="dialog"
-                   aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <p>
-                        <%=
-                            raw t("sign_up.modal_request_for_agreement",
-                                  terms_link: link_to(t("sign_up.terms_link_text"), "#"),
-                                  usage_policy_link: link_to(t("sign_up.usage_policy_link_text"), "#"))
-                        %>
-                      </p>
-                    </div>
-
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">
-                        <%= t("sign_up.disagree_button") %>
-                      </button>
-                      <%= user_fields.submit t("sign_up.agree_button"), class: "btn btn-primary" %>
-                    </div>
-                  </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-              </div><!-- /.modal -->
-
-              <% end %><!-- /form -->
-
-        </div><!-- /.panel-body -->
-      </div><!-- /.panel -->
-    </div><!-- /.col-md-5 -->
-  </div><!-- /.row -->
-
-  <div class="row">
-    <div class="col-md-6 center-block">
-      <div class="col-md-12 center-block">
-        <small>
-          <%=
-              raw t("sign_up.already_sign_up",
-                    sign_in_link: link_to(t("sign_up.sign_in_link_text"), signin_path))
-          %>
-        </small>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="checkbox">
+          <label>
+            <%= fields_for :additional do |additional_fields| %>
+                <%= additional_fields.check_box :remember_me %> <%= t('sign_up.remember_me_check_box') %>
+            <% end %>
+          </label>
+        </div>
       </div>
-    </div><!-- /.col-md-6 -->
-  </div><!-- /.row -->
-</div><!-- /.container -->
+    </div>
+
+    <div class="row margin-top-20 margin-bottom-20">
+      <!-- Button trigger request for agreement -->
+      <div class="col-md-12">
+        <button type="button" class="btn btn-primary"
+                data-toggle="modal" data-target="#request-for-agreement">
+          <%= t('sign_up.sign_up_button') %>
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal request for agreement -->
+    <div class="modal fade" id="request-for-agreement" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-body">
+            <p>
+              <%= raw t("sign_up.modal_request_for_agreement",
+                        terms_link: link_to(t("sign_up.terms_link_text"), "#"),
+                        usage_policy_link: link_to(t("sign_up.usage_policy_link_text"), "#")) %>
+            </p>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              <%= t("sign_up.disagree_button") %>
+            </button>
+            <%= user_fields.submit t("sign_up.agree_button"), class: "btn btn-primary" %>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+<% end %><!-- /form -->

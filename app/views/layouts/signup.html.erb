@@ -13,22 +13,60 @@
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "static_pages" %>
   <%= javascript_include_tag "signup" %>
+
+  <%= javascript_tag do %>
+      defaultLocale = "<%= I18n.default_locale %>";
+      locale = "<%= I18n.locale %>";
+      dateNow = "<%= Time.now.strftime("%d/%m/%Y") %>"
+  <% end %>
+
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
 <body class="bg-img">
 
 <div id="content">
-  <%= yield %>
-</div>
+  <div class="container margin-top-40 margin-bottom-80">
+    <div class="row">
+      <div class="col-md-6 center-block text-center fix-width">
+        <%= link_to image_tag('main_logo.png', alt: "Market by market"), root_path %>
+        <h3 class="margin-top-40 text-slim">
+          <%= yield(:page_header_title) %>
+        </h3>
+      </div>
+    </div>
+
+    <div class="row margin-top-20">
+      <div class="col-md-12 center-block">
+        <div class="panel panel-default center-block fix-width">
+          <div class="panel-body">
+            <div class="row margin-top-20">
+              <div class="col-md-12">
+                <p class="text-muted">
+                  <%= yield(:panel_header_title) %>
+                </p>
+              </div>
+            </div>
+            <%= yield %>
+          </div><!-- /.panel-body -->
+        </div><!-- /.panel -->
+      </div><!-- /.col-sm-6 -->
+    </div><!-- /.row -->
+
+    <div class="row margin-top-10">
+      <div class="col-md-12 fix-width center-block">
+        <small>
+          <%= yield(:panel_footer_link) %>
+        </small>
+      </div><!-- /.col-sm-6 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</div><!-- /#content -->
+
 <div id="footer">
   <%= render 'layouts/signup_footer' %>
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <%= debug(params) if Rails.env.development? %>
-      </div>
-    </div>
+    <%= debug(params) if Rails.env.development? %>
   </div>
 </div>
 </body>

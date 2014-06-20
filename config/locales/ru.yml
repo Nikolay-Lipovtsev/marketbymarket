@@ -9,6 +9,13 @@ ru:
         format: 'может содержать только буквы русского или только латинского алфавита, знак пробела и "-"'
         length: 'количество символов не должно превышать 50'
 
+    user:
+
+      validates_messages:
+
+        format: 'может содержать только буквы латинского алфавита, точки, знак "-" и "@"'
+        length: 'количество символов не должно быть меньше 6'
+
   footer_copyright: 'Сделано нами с заботой о Вашем бизнесе<br>© 2013, Reforma group'
 
   static_pages:
@@ -52,45 +59,58 @@ ru:
   sign_up:
 
     title: 'регистрация'
-    page_head: 'Зарегистрироваться - это просто!'
-    panel_head: 'Просто заполните эти поля и всё.'
-    last_name_placeholder: 'Фамилия'
-    last_name_popover: 'Ваша фамилия как указано в паспорте'
-    first_name_placeholder: 'Имя'
-    first_name_popover: 'Ваше имя как указано в паспорте'
-    email_placeholder: 'Адрес электронной почты'
-    email_popover: 'Нужен для подтверждения регистрации,
-                    а также на случай обратной связи.'
-    password_placeholder: 'Пароль'
-    password_popover: 'В целях безопасности длина пароля
-                       не может быть меньше 8 символов.'
-    password_confirmation_placeholder: 'Ещё раз пароль'
-    password_confirmation_popover: 'Введите пароль ещё раз.'
+    page_header_title: 'Зарегистрироваться - это просто!'
+    panel_header_title: 'Просто заполните эти поля и всё.'
     remember_me_check_box: 'Запомнить меня'
-    sign_up_button: 'Sign up'
-    modal_request_for_agreement: 'Нажимая кнопку "Зарегистрироваться", вы соглашаетесь с нашими
+    sign_up_button: 'Зарегистрироваться'
+    modal_request_for_agreement: 'Нажимая кнопку "Я согласен", вы соглашаетесь с нашими
                                   %{terms_link} и подтверждаете,
                                   что ознакомились с нашей %{usage_policy_link}.'
     terms_link_text: 'Условиями пользовательского соглашения'
     usage_policy_link_text: 'Политикой использования данных'
-    submit: 'Зарегистрироваться'
     disagree_button: 'Не согласен'
-    agree_button: 'Зарегистрироваться'
-    already_sign_up: 'Я уже зарегистрирован и мне нужно просто %{sign_in_link} в свой аккаунт.'
+    agree_button: 'Я согласен'
+    panel_footer_link: 'Я уже зарегистрирован и мне нужно просто %{sign_in_link} в свой аккаунт.'
     sign_in_link_text: 'войти'
+
+    placeholder:
+
+      last_name: 'Фамилия'
+      first_name: 'Имя'
+      birthday: 'Дата рождения'
+      email: 'Адрес электронной почты'
+      password: 'Пароль'
+      password_confirmation: 'Ещё раз пароль'
+
+    popover:
+
+      last_name: 'Ваша фамилия как указано в паспорте'
+      first_name: 'Ваше имя как указано в паспорте'
+      email: 'Нужен для подтверждения регистрации,
+                          а также на случай обратной связи.'
+      password: 'В целях безопасности длина пароля
+                             не может быть меньше 8 символов.'
+      password_confirmation: 'Введите пароль ещё раз.'
 
   sign_in:
 
     title: 'вход'
-    page_head: 'Войдите в свой аккаунт'
-    email_placeholder: 'Адрес электронной почты'
-    email_popover: 'Введите свой адрес электронной почты.'
-    password_placeholder: 'Пароль'
-    password_popover: 'Нужен для подтверждения.'
+    page_header_title: 'Войдите в свой аккаунт'
+    panel_header_title: 'Если вы уже зарегистрированы, то вы знаете что делать.'
+    panel_footer_link: 'Вы еще не зарегистрированы? %{sign_up_link}.'
     remember_me_check_box: 'Запомнить меня'
     sign_in_submit: 'Войти'
-    not_yet_sign_up: 'Вы еще не зарегистрированы? %{sign_up_link}.'
     sign_up_link_text: 'Создать аккаунт'
+
+    placeholder:
+
+      email: 'Адрес электронной почты'
+      password: 'Пароль'
+
+    popover:
+
+      email: 'Введите свой адрес электронной почты.'
+      password: 'Нужен для подтверждения.'
 
   project:
 
@@ -121,6 +141,21 @@ ru:
       signout: 'Выход'
 
     users:
+
+      custom:
+
+        lables:
+
+          account: 'Аккаунт'
+          email: 'Эл. почта'
+          password: 'Пароль'
+          password_confirmation: 'Ещё раз пароль'
+          language: 'Язык интерфейса'
+          person: 'Информация о пользователе'
+
+        placeholder:
+
+
 
       index:
 

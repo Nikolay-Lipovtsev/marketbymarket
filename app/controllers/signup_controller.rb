@@ -11,6 +11,7 @@ class SignupController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       save_user_id
+      sign_in @user
       redirect_to @user
     else
       render "signup/new"
@@ -20,14 +21,23 @@ class SignupController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, people_attributes: [:last_name,
-                                                                                                :first_name])
+    params.require(:user).permit(:email,
+                                 :password,
+                                 :password_confirmation,
+                                 person_attributes: [ :last_name,
+                                                      :first_name,
+                                                      :birthday])
   end
 
   #Set created_user and updated_user attr after save user without timestamps
   def save_user_id
     User.record_timestamps = false
-    @user.update(created_user: @user.id, updated_user: @user.id)
+    Person.record_timestamps = false
+    @user.creator = @user
+    @user.refresher = @user
+    @user.person.creator = @user
+    @user.person.refresher = @user
     User.record_timestamps = true
+    Person.record_timestamps = true
   end
 end

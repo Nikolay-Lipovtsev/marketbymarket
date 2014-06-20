@@ -19,6 +19,35 @@
 //= require bootstrap/alert
 //= require bootstrap/dropdown
 //= require bootstrap-select
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.ru.js
 
+var ready;
+ready = function() {
+
+    //Bootstrap datepicker rails default settings for signup
+
+    $('.sandbox-container.birthday input').datepicker({
+        endDate: dateNow,
+        startView: 2,
+        autoclose: true,
+        format: "dd/mm/yyyy",
+        todayBtn: "linked",
+        language: locale,
+        todayHighlight: true
+    });
+
+    $('.sandbox-container.gefault input').datepicker({
+        autoclose: true,
+        format: "dd/mm/yyyy",
+        todayBtn: "linked",
+        language: locale,
+        todayHighlight: true
+    });
+
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
 
 

@@ -1,87 +1,30 @@
 <% provide(:title, t("sign_in.title")) %>
+<% provide(:page_header_title, t('sign_in.page_header_title')) %>
+<% provide(:panel_header_title, t('sign_in.panel_header_title')) %>
+<% provide(:panel_footer_link, raw(t("sign_in.panel_footer_link",
+                                     sign_up_link: link_to(t("sign_in.sign_up_link_text"), signup_path)))) %>
 
-<div class="container margin-top-40 margin-bottom-80">
-  <div class="row">
-    <div class="col-md-6 center-block text-center">
-      <%= link_to image_tag('main_logo.png', alt: "Market by market"), root_path %>
-      <h3 class="margin-top-40 text-slim">
-        Войдите в свой аккаунт
-      </h3>
+<%= form_for(:session, url: sessions_path, html: { role: "form" }) do |session_fields| %>
+
+    <%= sign_page_input_tag("sign_in", session_fields, :email, "envelope", "email") %>
+    <%= sign_page_input_tag("sign_in", session_fields, :password, "lock", "password") %>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="checkbox">
+          <label>
+            <%= fields_for :additional do |additional_fields| %>
+                <%= additional_fields.check_box :remember_me %> <%= t('sign_in.remember_me_check_box') %>
+            <% end %>
+          </label>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="row margin-top-20">
-    <div class="col-md-6 center-block">
-      <div class="panel panel-default">
-        <div class="panel-body sign-up-form">
-          <%= form_for(:session, url: sessions_path, html: { role: "form" }) do |session_fields| %>
 
-            <div class="row margin-top-20">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <div class="form-group">
-                    <%= session_fields.email_field(:email, class: "form-control",
-                                                    id: "email",
-                                                    placeholder: "#{t('sign_in.email_placeholder')}",
-                                                    data: { container: "body",
-                                                            toggle: "popover",
-                                                            placement: "bottom",
-                                                            content: "#{t('sign_in.email_popover')}" }) %>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div class="row margin-top-20 margin-bottom-20">
+      <div class="col-md-12">
+        <%= session_fields.submit t('sign_in.sign_in_submit'), class: "btn btn-primary" %>
+      </div>
+    </div>
 
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group">
-                  <div class="form-group">
-                    <%= session_fields.password_field(:password, class: "form-control",
-                                                   id: "password",
-                                                   placeholder: "#{t('sign_in.password_placeholder')}",
-                                                   data: { container: "body",
-                                                           toggle: "popover",
-                                                           placement: "bottom",
-                                                           content: "#{t('sign_in.password_popover')}" }) %>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-12">
-                <div class="checkbox">
-                  <label>
-                    <%= fields_for :additional do |additional_fields| %>
-                        <%= additional_fields.check_box :remember_me %> <%= t('sign_in.remember_me_check_box') %>
-                    <% end %>
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div class="row margin-top-20 margin-bottom-20">
-              <!-- Button trigger request for agreement -->
-              <div class="col-md-12">
-                <%= session_fields.submit t('sign_in.sign_in_submit'), class: "btn btn-primary" %>
-              </div>
-            </div>
-
-          <% end %><!-- /form -->
-
-        </div><!-- /.panel-body -->
-      </div><!-- /.panel -->
-    </div><!-- /.col-md-5 -->
-  </div><!-- /.row -->
-
-  <div class="row">
-    <div class="col-md-6 center-block">
-      <div class="col-md-12 center-block">
-      <small>
-        <%=
-            raw t("sign_in.not_yet_sign_up",
-                  sign_up_link: link_to(t("sign_in.sign_up_link_text"), signup_path))
-        %>
-      </small>
-    </div><!-- /.col-md-5 -->
-  </div><!-- /.row -->
-</div><!-- /.container -->
+<% end %><!-- /form -->

@@ -1,6 +1,7 @@
 Marketbymarket::Application.routes.draw do
 
-  resources :users, only: [:index, :show, :new, :create, :destroy]
+  resources :users, only: [:index, :show, :new, :create, :edit, :destroy]
+  resources :sessions, only: [:create]
   root  "static_pages#home"
   match "/signup",  to: "signup#new",           via: "get"
   match "/signup",  to: "signup#create",        via: "post"

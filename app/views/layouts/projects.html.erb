@@ -13,6 +13,11 @@
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "projects" %>
 
+  <%= javascript_tag do %>
+      defaultLocale = "<%= I18n.default_locale %>";
+      locale = "<%= I18n.locale %>";
+  <% end %>
+
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
@@ -37,7 +42,7 @@
         <div id="current-user">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <%= image_tag("demo_avatar.jpg", alt: "Avatar", class: "img-circle avatar-sm") %>
-            <p><small>&nbspПрохор Митрич</small></p>
+            <p>&nbsp;<%= current_user.person.first_name%>&nbsp;<%=current_user.person.last_name %></p>
             <i class="fa fa-angle-down fa-lg"></i>
           </a>
           <ul class="dropdown-menu pull-right" role="menu">
@@ -70,7 +75,7 @@
           <div class="row">
             <div class="col-sm-12">
               <%= link_to new_user_path do %>
-                  <i class="fa fa-plus fa-fw"></i>&nbspДобавить пользователя
+                  <i class="fa fa-plus fa-fw"></i>&nbsp;Добавить пользователя
               <% end %>
             </div>
           </div>

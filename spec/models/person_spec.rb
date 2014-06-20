@@ -40,42 +40,34 @@ describe Person do
 
   describe "When middle name is not present" do
     before { person.middle_name = " " }
-    it { expect(person).not_to be_valid }
+    it { expect(person).to be_valid }
   end
 
   describe "When last name is too long" do
-    before { person.first_name = "A" + ( "a" * 51 ) }
+    before { person.last_name = "A" + ( "a" * 50 ) }
+    it { expect(person).not_to be_valid }
+  end
+
+  describe "When first name is too long" do
+    before { person.first_name = "A" + ( "a" * 50 ) }
+    it { expect(person).not_to be_valid }
+  end
+
+  describe "When middle name is too long" do
+    before { person.middle_name = "A" + ( "a" * 50 ) }
     it { expect(person).not_to be_valid }
   end
 
   describe "When last name format is invalid" do
+    let(:name) { %w[Ефремоv Ivanov. Iva_nov Iva@nov] }
     it "should be invalid" do
-      name = %w[  ivanov IvanoV Iva--nov Ivanov. Iva_nov Iva@nov]
+
       name.each do |invalid_name|
         person.last_name = invalid_name
-        person.should_not be_valid
+        expect(person).not_to be_valid
       end
     end
   end
 
-  describe "When first name format is invalid" do
-    it "should be invalid" do
-      name = %w[  ivanov IvanoV Iva--nov Ivanov. Iva_nov Iva@nov]
-      name.each do |invalid_name|
-        person.first_name = invalid_name
-        person.should_not be_valid
-      end
-    end
-  end
-
-  describe "When middle name format is invalid" do
-    it "should be invalid" do
-      name = %w[  ivanov IvanoV Iva--nov Ivanov. Iva_nov Iva@nov]
-      name.each do |invalid_name|
-        person.middle_name = invalid_name
-        person.should_not be_valid
-      end
-    end
-  end
 
 end

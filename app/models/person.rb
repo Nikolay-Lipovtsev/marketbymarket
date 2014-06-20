@@ -16,9 +16,9 @@
 #
 
 class Person < ActiveRecord::Base
-  belongs_to :personable, polymorphic: true, dependent: :destroy
-  #belongs_to :user, class_name: "User", foreign_key: "created_user"
-  #belongs_to :user, class_name: "User", foreign_key: "updated_user"
+  belongs_to :personable, polymorphic: true
+  belongs_to :creator, class_name: "User", foreign_key: "created_user"
+  belongs_to :refresher, class_name: "User", foreign_key: "updated_user"
 
   VALID_NAME_REGEX = /\A(([a-z -]*)|([а-я -]*))\z/i
 
@@ -42,6 +42,9 @@ class Person < ActiveRecord::Base
                       allow_blank: true },
             length: { maximum: 50,
                       message: I18n.t("models.person.validates_messages.length") }
+
+  validates :birthday, presence: true
+
   private
 
   def set_name
@@ -57,7 +60,7 @@ class Person < ActiveRecord::Base
       name.gsub!(/^[ -]*|[ -]*$/, "")
       name.gsub!(/[ ]*[-]{2,}[ ]*/, "-")
       name.gsub!(/[ ]{2,}/, " ")
-      name.gsub!(/\w+/) { |s| s.capitalize }
+      name.gsub!(/[a-zа-я]+/i) { |s| s.capitalize }
     end
   end
 end

@@ -7,6 +7,13 @@
 
   <%= stylesheet_link_tag "custom", media: "all" %>
   <%= javascript_include_tag "application" %>
+
+  <%= javascript_tag do %>
+      defaultLocale = "<%= I18n.default_locale %>";
+      locale = "<%= I18n.locale %>";
+      dateNow = "<%= Time.now.strftime("%d/%m/%Y") %>"
+  <% end %>
+
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
