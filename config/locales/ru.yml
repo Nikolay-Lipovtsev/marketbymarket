@@ -8,6 +8,8 @@ ru:
 
         format: 'может содержать только буквы русского или только латинского алфавита, знак пробела и "-"'
         length: 'количество символов не должно превышать 50'
+        birthday: 'не может превышать текущий день'
+        sex: 'неверный формат'
 
     user:
 
@@ -15,6 +17,12 @@ ru:
 
         format: 'может содержать только буквы латинского алфавита, точки, знак "-" и "@"'
         length: 'количество символов не должно быть меньше 6'
+        language: 'неверное значение'
+
+  sex:
+
+    male: 'Мужской'
+    female: 'Женский'
 
   footer_copyright: 'Сделано нами с заботой о Вашем бизнесе<br>© 2013, Reforma group'
 
@@ -46,7 +54,7 @@ ru:
 
     home:
 
-      title: 'главная страница'
+      title: 'Главная страница'
       slogan: 'Сделать, продать, доставить - проще простого!'
       let_sign_up: 'Попробуйте market by market бесплатно'
       sign_up_button: 'Зарегистрироваться'
@@ -58,7 +66,7 @@ ru:
 
   sign_up:
 
-    title: 'регистрация'
+    title: 'Регистрация'
     page_header_title: 'Зарегистрироваться - это просто!'
     panel_header_title: 'Просто заполните эти поля и всё.'
     remember_me_check_box: 'Запомнить меня'
@@ -94,13 +102,18 @@ ru:
 
   sign_in:
 
-    title: 'вход'
+    title: 'Вход'
     page_header_title: 'Войдите в свой аккаунт'
     panel_header_title: 'Если вы уже зарегистрированы, то вы знаете что делать.'
     panel_footer_link: 'Вы еще не зарегистрированы? %{sign_up_link}.'
     remember_me_check_box: 'Запомнить меня'
     sign_in_submit: 'Войти'
     sign_up_link_text: 'Создать аккаунт'
+
+    error:
+
+      invalid_information: 'Неверный адрес электронной почты или пароль.
+      Пожалуйста, попробуйте еще раз (проверьте, не включен ли Caps Lock).'
 
     placeholder:
 
@@ -112,7 +125,7 @@ ru:
       email: 'Введите свой адрес электронной почты.'
       password: 'Нужен для подтверждения.'
 
-  project:
+  default:
 
     controls:
 
@@ -140,34 +153,43 @@ ru:
       profile: 'Профиль'
       signout: 'Выход'
 
-    users:
+    user:
 
-      custom:
+      block_title:
 
-        lables:
+        account: 'Аккаунт'
 
-          account: 'Аккаунт'
-          email: 'Эл. почта'
-          password: 'Пароль'
-          password_confirmation: 'Ещё раз пароль'
-          language: 'Язык интерфейса'
-          person: 'Информация о пользователе'
+      label:
 
-        placeholder:
+        email: 'Эл. почта'
+        password: 'Пароль'
+        password_confirmation: 'Ещё раз пароль'
+        language: 'Язык интерфейса'
 
+    person:
 
+      block_title:
+
+        profile: 'Информация о пользователе'
+
+      label:
+
+        last_name: 'Фамилия'
+        first_name: 'Имя'
+        middle_name: 'Отчество'
+        sex: 'Пол'
 
       index:
 
-        page_title: 'пользователи'
+        page_title: 'Пользователи'
         head_title: 'Пользователи'
 
       edit:
 
-        page_title: 'редактирование пользователя'
+        page_title: 'Редактирование пользователя'
         head_title: 'Редактирование пользователя'
 
       new:
 
-        page_title: 'новый пользователь'
+        page_title: 'Новый пользователь'
         head_title: 'Новый пользователь'

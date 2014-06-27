@@ -1,0 +1,15 @@
+<div class="form-group">
+  <label for="email" class="col-sm-3 control-label">
+    <%= t("default.person.label.sex") %>
+  </label>
+  <div class="col-sm-7 radio">
+    <%= class_name.label :sex, value: "M", class: "radio-inline" do -%>
+        <%= class_name.radio_button :sex, "M" %>
+        <%= t('sex.male') %>
+    <% end -%>
+    <%= class_name.label :sex, value: "F", class: "radio-inline" do -%>
+        <%= class_name.radio_button :sex, "F" %>
+        <%= t('sex.female') %>
+    <% end -%>
+  </div>
+</div>

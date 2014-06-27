@@ -13,6 +13,7 @@
 #  personable_type :string(255)
 #  created_at      :datetime
 #  updated_at      :datetime
+#  sex             :string(255)
 #
 
 class Person < ActiveRecord::Base
@@ -21,6 +22,7 @@ class Person < ActiveRecord::Base
   belongs_to :refresher, class_name: "User", foreign_key: "updated_user"
 
   VALID_NAME_REGEX = /\A(([a-z -]*)|([а-я -]*))\z/i
+  VALID_SEX_REGEX = /\A(M{1}|F{1})\z/i
 
   before_save :set_name
 
@@ -43,7 +45,12 @@ class Person < ActiveRecord::Base
             length: { maximum: 50,
                       message: I18n.t("models.person.validates_messages.length") }
 
-  validates :birthday, presence: true
+  validates :birthday, presence: true,
+            date: { before: Proc.new { Date.today }, message: I18n.t("models.person.validates_messages.birthday") }
+
+  validates :sex, presence: true,
+            inclusion: { in: %w(M F),
+                         message: I18n.t("models.person.validates_messages.sex") }
 
   private
 

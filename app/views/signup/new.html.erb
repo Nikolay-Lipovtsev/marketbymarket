@@ -10,6 +10,7 @@
         <%= sign_page_input_tag("sign_up", person_fields, :last_name, "user") %>
         <%= sign_page_input_tag("sign_up", person_fields, :first_name, "user") %>
         <%= sign_page_input_tag("sign_up", person_fields, :birthday, "calendar", "date", "6", false) %>
+        <%= render "people/sex_radio_button_tag", group: person_fields %>
 
     <% end %><!-- /fields_for person -->
 

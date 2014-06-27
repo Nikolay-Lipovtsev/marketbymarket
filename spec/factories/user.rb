@@ -6,7 +6,12 @@ FactoryGirl.define do
     password "foobar"
     password_confirmation "foobar"
 
-    #after(:create) {|user| user.person = [create(:person)]}
-    #user.after_create {|usr| Factory(:person, personable: usr)}
+    after(:build) do |user|
+      user.person = build(:person, personable: user)
+    end
+
+    after(:create) do |user|
+      user.person.save!
+    end
   end
 end

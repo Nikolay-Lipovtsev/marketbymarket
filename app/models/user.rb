@@ -10,6 +10,7 @@
 #  created_at      :datetime
 #  updated_at      :datetime
 #  remember_token  :string(255)
+#  language        :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -28,6 +29,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :person
 
   before_save { self.email = email.downcase }
+  before_save :set_language
   before_create :create_remember_token
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -51,6 +53,8 @@ class User < ActiveRecord::Base
   validates :password_confirmation,
             presence: true
 
+  validate :set_language
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
@@ -63,5 +67,17 @@ class User < ActiveRecord::Base
 
   def create_remember_token
     self.remember_token = User.encrypt(User.new_remember_token)
+  end
+
+  def set_language
+    self.language = I18n.locale if controller_name = "signup"
+  end
+
+  def correct_language
+    unless controller_name = "signup"
+      if :language.blank? || language_list.any?{ |k| k[1] == :language }
+        errors.add(:language, I18n.t("models.user.validates_messages.language"))
+      end
+    end
   end
 end

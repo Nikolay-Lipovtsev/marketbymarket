@@ -26,7 +26,8 @@ class SignupController < ApplicationController
                                  :password_confirmation,
                                  person_attributes: [ :last_name,
                                                       :first_name,
-                                                      :birthday])
+                                                      :birthday,
+                                                      :sex ])
   end
 
   #Set created_user and updated_user attr after save user without timestamps

@@ -31,7 +31,7 @@ ready = function() {
         endDate: dateNow,
         startView: 2,
         autoclose: true,
-        format: "dd/mm/yyyy",
+        format: "dd.mm.yyyy",
         todayBtn: "linked",
         language: locale,
         todayHighlight: true
@@ -39,7 +39,7 @@ ready = function() {
 
     $('.sandbox-container.gefault input').datepicker({
         autoclose: true,
-        format: "dd/mm/yyyy",
+        format: "dd.mm.yyyy",
         todayBtn: "linked",
         language: locale,
         todayHighlight: true

@@ -1,4 +1,4 @@
-<% provide(:title, t("project.users.new.page_title")) %>
+<% provide(:title, short_user_name(current_user)) %>
 <% provide(:header_title, t("project.users.new.head_title")) %>
 
 <div class="page-content inset">
@@ -16,112 +16,64 @@
               <div class="row">
                 <div class="col-sm-12 text-center">
                   <%= link_to root_path do %>
-                      <i class="fa fa-pencil fa-fw"></i><small>&nbsp<%= t("project.controls.edit") %></small>
+                      <i class="fa fa-pencil fa-fw"></i><small>&nbsp<%= t("default.controls.edit") %></small>
                   <% end %>
                 </div>
               </div>
               <div class="col-sm-12 border-row margin-bottom-40 margin-top-40"></div>
-              <div class="row">
-                <div class="col-sm-9 col-sm-offset-3 margin-bottom-20 text-muted">
-                  <h4 class="lead"><%= t("project.custom.lable.account") %></h4>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="email" class="col-sm-3 control-label"><%= t("project.custom.lable.email") %>*</label>
-                <div class="col-sm-7">
-                  <%= user_fields.text_field(   :email, class: "form-control",
-                                                id: "email",
-                                                placeholder: "Email",
-                                                maxlength: "50"
-                      ) %>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="password" class="col-sm-3 control-label"><%= t("project.custom.lable.password") %>*</label>
-                <div class="col-sm-7">
-                  <%= user_fields.text_field(   :password, class: "form-control",
-                                                id: "password",
-                                                placeholder: "Придумайте сложный, но запоминающийся пароль"
-                      ) %>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="password-confirmation" class="col-sm-3 control-label">
-                  <%= t("project.custom.lable.password_confirmation") %>*
-                </label>
-                <div class="col-sm-7">
-                  <%= user_fields.text_field(   :password_confirmation, class: "form-control",
-                                                id: "password-confirmation",
-                                                placeholder: "Повторите пароль ещё раз"
-                      ) %>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputPassword" class="col-sm-3 control-label">
-                  <%= t("project.custom.lable.language") %>
-                </label>
-                <div class="col-sm-7">
-                  <select class="form-control">
-                    <option>Русский</option>
-                    <option>English</option>
-                  </select>
-                </div>
-              </div>
+
+              <%= render "default/block_title", title: t("default.user.block_title.account") %>
+
+              <%= render "default/text_input_with_label",
+                         class_name: user_fields,
+                         name: :email,
+                         label_text: t("default.user.label.email"),
+                         required_field: true %>
+
+              <%= render "default/text_input_with_label",
+                         class_name: user_fields,
+                         name: :password,
+                         label_text: t("default.user.label.password"),
+                         required_field: true %>
+
+              <%= render "default/text_input_with_label",
+                         class_name: user_fields,
+                         name: :password_confirmation,
+                         label_text: t("default.user.label.password_confirmation"),
+                         required_field: true %>
+
+              <%= render "default/language_select_input_with_label",
+                         class_name: user_fields,
+                         name: :language %>
+
               <div class="col-sm-12 border-row margin-bottom-40 margin-top-40"></div>
-              <div class="row">
-                <div class="col-sm-9 col-sm-offset-3 margin-bottom-20 text-muted">
-                  <h4 class="lead"><%= t("project.custom.lable.person") %></h4>
-                </div>
-              </div>
+
+              <%= render "default/block_title", title: t("default.person.block_title.profile") %>
 
               <%= user_fields.fields_for :person do |person_fields| %>
 
-                  <div class="form-group">
-                    <label for="last-name" class="col-sm-3 control-label">
-                      <%= t("project.custom.lable.last_name") %>*
-                    </label>
-                    <div class="col-sm-7">
-                      <%= person_fields.text_field( :last_name,
-                                                    class: "form-control",
-                                                    id: "last-name",
-                                                    placeholder: "#{t('project.custom.placeholder.last_name')}") %>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="first-name" class="col-sm-3 control-label">Имя*</label>
-                    <div class="col-sm-7">
-                    <%= person_fields.text_field( :first_name,
-                                                  class: "form-control",
-                                                  id: "first-name",
-                                                  placeholder: "Имя") %>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="middle-name" class="col-sm-3 control-label">Отчество</label>
-                    <div class="col-sm-7">
-                    <%= person_fields.text_field( :middle_name,
-                                                  class: "form-control",
-                                                  id: "middle-name",
-                                                  placeholder: "Отчество") %>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="sex" class="col-sm-3 control-label">Пол*</label>
-                    <div class="col-sm-7">
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                          Мужчина
-                        </label>
-                      </div>
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                          Женщина
-                        </label>
-                      </div>
-                    </div>
-                  </div>
+                  <%= render "default/text_input_with_label",
+                             class_name: person_fields,
+                             name: :last_name,
+                             label_text: t("default.person.label.last_name"),
+                             required_field: true %>
+
+                  <%= render "default/text_input_with_label",
+                             class_name: person_fields,
+                             name: :first_name,
+                             label_text: t("default.person.label.first_name"),
+                             required_field: true %>
+
+                  <%= render "default/text_input_with_label",
+                             class_name: person_fields,
+                             name: :middle_name,
+                             label_text: t("default.person.label.middle_name"),
+                             required_field: false %>
+
+                  <%= render "default/sex_radio_button",
+                             class_name: person_fields %>
+
+
                   <div class="form-group">
                     <label for="inputEmail3" class="col-sm-3 control-label">Дата рождения*</label>
                     <div class="col-sm-7">

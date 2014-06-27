@@ -6,8 +6,12 @@ module ApplicationHelper
     if page_title.empty?
       base_title
     else
-      "#{base_title} - #{page_title}"
+      "#{page_title} - #{base_title}"
     end
+  end
+
+  def language_list
+    [['Русский', 'ru'], ['English', 'en']]
   end
 
   def class_for_invalid_input(obj, name)
@@ -41,17 +45,17 @@ module ApplicationHelper
 
           (ico ? content_tag(:i, "", class: "fa fa-#{ico} fa-fw text-muted") : "") +
 
-          group.text_field( name,
-                            class: "form-control" + (popover ? " popover-add" : ""),
-                            id: name.to_s.gsub("_", "-"),
-                            type: input_type,
-                            placeholder: "#{t(controller_name + '.placeholder.' + name.to_s)}",
-                            data: { container: "body",
-                                    toggle: "popover",
-                                    placement: "bottom",
-                                    content: (popover ?  "#{t(controller_name + '.popover.' + name.to_s)}" : nil) }) +
+              group.text_field( name,
+                                id: name.to_s.gsub("_", "-"),
+                                class: "form-control" + (" popover-add" if popover).to_s,
+                                type: input_type,
+                                placeholder: "#{t(controller_name + '.placeholder.' + name.to_s)}",
+                                data: { container: "body",
+                                        toggle: "popover",
+                                        placement: "bottom",
+                                        content: ("#{t(controller_name + '.popover.' + name.to_s)}" if popover) }) +
 
-          error_msg_for_invalid_input(group.object, name)
+              error_msg_for_invalid_input(group.object, name)
         end
       end
     end

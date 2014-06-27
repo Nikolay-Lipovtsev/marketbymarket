@@ -1,49 +1,38 @@
 require 'spec_helper'
 
-describe "Authentication" do
+describe "authentication" do
 
   subject { page }
   let(:user) { FactoryGirl.create(:user) }
-  let(:person) {FactoryGirl.create(:person, user: user)}
-  describe "Signin page" do
+  describe "sign in page" do
     before { visit signin_path }
-
-    it { expect(page).to have_title("Market by market - войти") }
+    it { expect(page).to have_title(correct_title("Вход")) }
     it { expect(page).to have_selector("input[type=email][name='session[email]']")  }
     it { expect(page).to have_selector("input[type=password][name='session[password]']") }
     it { expect(page).to have_selector("input[type=submit][value='Войти']") }
   end
 
-  describe "Sign in" do
+  describe "sign in" do
     before { visit signin_path }
-
-    context "With invalid information" do
+    context "with invalid information" do
       before { click_button "Войти" }
-
-      it { expect(page).to have_title("Market by market - войти") }
+      it { expect(page).to have_selector("input[type=submit][value='Войти']") }
     end
 
-    context "With valid information" do
+    context "with valid information" do
+      before { valid_signin(user) }
+      it { expect(page).to have_title(correct_title(short_user_name(user))) }
+      it { expect(page).to have_link("Профиль", href: user_path(user) + "?locale=ru") }
+      it { expect(page).to have_link("Выход", href: signout_path  + "?locale=ru") }
 
-      before do
-        #@micropost = user.microposts.build(content: "Lorem ipsum")
-        fill_in "session[email]",    with: user.email.upcase
-        fill_in "session[password]", with: user.password
-        click_button "Войти"
+      context "after visiting another page" do
+        before { click_link "Редактировать" }
+        it { expect(page).to have_link("Выход") }
       end
 
-      it { expect(page).not_to have_title("Market by market - войти") }
-      it { expect(page).not_to have_link("Профиль", href: project_path(project.name) + '?locale=ru') }
-      it { expect(page).not_to have_link("Выйти", href: signout_path  + '?locale=ru') }
-
-      context "After visiting another page" do
-        before { click_link "Главная" }
-        it { expect(page).to have_link('Выйти') }
-      end
-
-      context "Followed by signout" do
+      context "followed by sign out" do
         before { click_link "Выход" }
-        it { expect(page).to have_link('Войти') }
+        it { expect(page).to have_link("Войти") }
       end
     end
   end

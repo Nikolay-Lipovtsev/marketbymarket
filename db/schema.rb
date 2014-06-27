@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520183733) do
+ActiveRecord::Schema.define(version: 20140626063347) do
 
   create_table "people", force: true do |t|
     t.string   "last_name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20140520183733) do
     t.string   "personable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sex"
   end
 
   add_index "people", ["personable_id", "personable_type"], name: "index_people_on_personable_id_and_personable_type"
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20140520183733) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "remember_token"
+    t.string   "language"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

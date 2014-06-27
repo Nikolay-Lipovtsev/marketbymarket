@@ -17,6 +17,9 @@ gem 'russian', '~> 0.6.0'
 # Icons by Font Awesome SASS
 gem 'font-awesome-sass'
 
+# Date validator
+gem 'date_validator', '~> 0.7.0'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -54,6 +57,9 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.1'
+  gem 'spork-rails', '4.0.0'
+  gem 'guard-spork', '1.5.1'
+  gem 'childprocess', '0.5.3'
 end
 
 # Use ActiveModel has_secure_password

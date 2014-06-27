@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
       sign_in user
       redirect_back_or user
     else
+      flash.now[:authenticate_error] = t('sign_in.error.invalid_information')
       render 'new'
     end
   end

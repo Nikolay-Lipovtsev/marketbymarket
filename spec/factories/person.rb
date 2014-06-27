@@ -1,11 +1,11 @@
 FactoryGirl.define do
 
   factory :person do
-    #association(:user)
-    association :personable, factory: :user, strategy: :build
+    association :personable, factory: :user
     last_name "Ivanov"
     first_name "Ivan"
     middle_name "Ivanovich"
-    birthday "01.01.2000"
+    birthday 20.years.ago
+    sex "M"
   end
 end
