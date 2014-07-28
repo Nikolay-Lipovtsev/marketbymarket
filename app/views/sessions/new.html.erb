@@ -4,10 +4,9 @@
 <% provide(:panel_footer_link, raw(t("sign_in.panel_footer_link",
                                      sign_up_link: link_to(t("sign_in.sign_up_link_text"), signup_path)))) %>
 
-<%= form_for(:session, url: sessions_path, html: { role: "form" }) do |session_fields| %>
-
-    <%= sign_page_input_tag("sign_in", session_fields, :email, "envelope", "email") %>
-    <%= sign_page_input_tag("sign_in", session_fields, :password, "lock", "password") %>
+<%= bootstrap_form_for(:session, url: sessions_path, html: { role: "form" }) do |session_fields| %>
+    <%= session_fields.text_field :email %>
+    <%= session_fields.password_field(:password, control_col: 8) %>
 
     <% flash.each do |key, value| %>
         <% if key == :authenticate_error %>
@@ -19,22 +18,20 @@
         <% end %>
     <% end %>
 
-    <div class="row">
-      <div class="col-md-12">
-        <div class="checkbox">
-          <label>
-            <%= fields_for :additional do |additional_fields| %>
-                <%= additional_fields.check_box :remember_me %> <%= t('sign_in.remember_me_check_box') %>
-            <% end %>
-          </label>
-        </div>
+
+    <div class="col-md-12">
+      <div class="checkbox">
+        <label>
+          <%= fields_for :additional do |additional_fields| %>
+              <%= additional_fields.check_box :remember_me %> <%= t('sign_in.remember_me_check_box') %>
+          <% end %>
+        </label>
       </div>
     </div>
 
-    <div class="row margin-top-20 margin-bottom-20">
+    <div class="margin-top-20 margin-bottom-20">
       <div class="col-md-12">
         <%= session_fields.submit t('sign_in.sign_in_submit'), class: "btn btn-primary" %>
       </div>
     </div>
-
 <% end %><!-- /form -->

@@ -7,7 +7,8 @@
 <%= form_for(@user, url: signup_path, html: { role: "form" }) do |user_fields| %>
     <%= user_fields.fields_for :person do |person_fields| %>
 
-        <%= sign_page_input_tag("sign_up", person_fields, :last_name, "user") %>
+
+        <%= person_fields.text_field(:last_name) %>
         <%= sign_page_input_tag("sign_up", person_fields, :first_name, "user") %>
         <%= sign_page_input_tag("sign_up", person_fields, :birthday, "calendar", "date", "6", false) %>
         <%= render "people/sex_radio_button_tag", group: person_fields %>
