@@ -5,12 +5,20 @@
 
   <%= render 'layouts/description' %>
 
+  <%= stylesheet_link_tag    "application",   media: "all" %>
   <%= stylesheet_link_tag    "custom", media: "all" %>
   <%= stylesheet_link_tag    "static_pages", media: "all" %>
   <%= stylesheet_link_tag    "signup", media: "all" %>
 
   <%= javascript_include_tag "application" %>
   <%= javascript_include_tag "signup" %>
+
+  <%= javascript_tag do %>
+      defaultLocale = "<%= I18n.default_locale %>";
+      locale = "<%= I18n.locale %>";
+      dateNow = "<%= Time.now.strftime("%d/%m/%Y") %>"
+  <% end %>
+
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>

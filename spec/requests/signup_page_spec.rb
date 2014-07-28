@@ -1,59 +1,65 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe "Sign up page" do
+describe "sign up page" do
 
-  context "Visit sign up page" do
+  subject { page }
+
+  context "visit sign up page" do
     before { visit signup_path }
-    it { expect(page).to have_title("Market by market - регистрация") }
-    it { expect(page).to have_selector("input[type=text][name='project[name]']") }
-    it { expect(page).to have_selector("input[type=email][name='project[users_attributes][0][email]']") }
-    it { expect(page).to have_selector("input[type=password][name='project[users_attributes][0][password]']") }
-    it { expect(page).to have_selector("input[type=password][name='project[users_attributes][0][password_confirmation]']") }
-    it { expect(page).to have_selector("button[type=button]", text: 'Sign up') }
-    it { expect(page).to have_selector("input[type=submit][value='Зарегистрироваться']") }
+    it { expect(page).to have_title(correct_title("Регистрация")) }
+    it { expect(page).to have_selector("input[type=text][name='user[person_attributes][last_name]']") }
+    it { expect(page).to have_selector("input[type=text][name='user[person_attributes][first_name]']") }
+    it { expect(page).to have_selector("input[type=date][name='user[person_attributes][birthday]']") }
+    it { expect(page).to have_selector("input[type=radio][name='user[person_attributes][sex]'][value='M']") }
+    it { expect(page).to have_selector("input[type=radio][name='user[person_attributes][sex]'][value='F']") }
+    it { expect(page).to have_selector("input[type=email][name='user[email]']") }
+    it { expect(page).to have_selector("input[type=password][name='user[password]']") }
+    it { expect(page).to have_selector("input[type=password][name='user[password_confirmation]']") }
+    it { expect(page).to have_selector("button[type=button]", text: 'Зарегистрироваться') }
+    it { expect(page).to have_selector("input[type=submit][value='Я согласен']") }
   end
 
-  describe "Displays request for agreement", js: true do
+  describe "displays request for agreement", js: true do
     before { visit signup_path }
-
-    context "No click request for agreement" do
+    context "without pressing the button" do
       it "should not displays request for agreement message" do
         expect(page).to have_selector("#request-for-agreement", visible: false)
       end
     end
 
-    context "Click request for agreement" do
+    context "with pressing the button" do
       it "should displays request for agreement message" do
-        click_button "Sign up"
+        click_button "Зарегистрироваться"
         expect(page).to have_selector("#request-for-agreement")
       end
     end
   end
 
-  describe "Sign up" do
-    before { visit signup_path }
+  describe "sign up" do
+    before do
+      visit signup_path
+      click_button "Зарегистрироваться"
+    end
 
-    context "With invalid information" do
-      before { click_button "Sign up" }
-
+    context "with invalid information" do
       it "should not create a project and user" do
-        expect { click_button "Зарегистрироваться" }.not_to change(Project, :count)
-        #pending "Test is not ready yet"
+        expect { click_button "Я согласен" }.not_to change(User, :count)
       end
     end
 
-    context "With valid information" do
+    context "with valid information" do
+      let(:user) { FactoryGirl.build(:user) }
       before do
-        fill_in "project[name]",                                       with: "my_company"
-        fill_in "project[users_attributes][0][email]",                 with: "user@example.com"
-        fill_in "project[users_attributes][0][password]",              with: "foobar"
-        fill_in "project[users_attributes][0][password_confirmation]", with: "foobar"
-        click_button "Sign up"
+        fill_in "user[person_attributes][last_name]",  with: user.person.last_name
+        fill_in "user[person_attributes][first_name]", with: user.person.first_name
+        fill_in "user[person_attributes][birthday]",   with: user.person.birthday
+        fill_in "user[email]",                         with: user.email
+        fill_in "user[password]",                      with: user.password
+        fill_in "user[password_confirmation]",         with: user.password_confirmation
+        click_button "Зарегистрироваться"
       end
-
       it "should create a project and user" do
-        expect { click_button "Зарегистрироваться" }.to change(Project, :count).by(1)
-        #pending "Test is not ready yet"
+        expect { click_button "Я согласен" }.to change(User, :count).by(1)
       end
     end
   end

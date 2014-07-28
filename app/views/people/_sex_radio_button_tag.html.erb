@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-xs-12 radio">
+    <%= group.label :sex, value: "M", class: "radio-inline" do -%>
+        <%= group.radio_button :sex, "M", checked: true %>
+        <%= t('sex.male') %>
+    <% end -%>
+    <%= group.label :sex, value: "F", class: "radio-inline" do -%>
+        <%= group.radio_button :sex, "F" %>
+        <%= t('sex.female') %>
+    <% end -%>
+    <%= error_msg_for_invalid_input(group.object, :sex) %>
+  </div>
+</div>

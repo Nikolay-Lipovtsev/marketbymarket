@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-  layout 'projects'
+  layout "default"
+
+  before_action :signed_in_user
+  #before_action :correct_user,   only: [:edit, :update]
 
   def index
     @users = User.all
@@ -7,6 +10,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.build_person
   end
 
   def show
@@ -14,12 +18,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_param)
+    @user = User.new(user_params)
     if @user.save
-      #save_user_id
       redirect_to @user
     else
-      render 'new'
+      render "new"
     end
   end
 
@@ -27,16 +30,41 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  private
-
-  def user_param
-    params.require(:user).permit(:email, :password, :password_confirmation)
+  def update
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render "edit"
+    end
   end
 
-  #Set created_user and updated_user attr after save user without timestamps
-  def save_user_id
-    User.record_timestamps = false
-    @user.update(created_user: @user.id, updated_user: @user.id)
-    User.record_timestamps = true
+  private
+
+  def user_params
+    params.require(:user).permit(:email,
+                                 :password,
+                                 :password_confirmation,
+                                 :language,
+                                 person_attributes: [ :last_name,
+                                                      :first_name,
+                                                      :middle_name,
+                                                      :birthday,
+                                                      :sex ])
+  end
+
+  # Before filters
+
+  def signed_in_user
+    store_location
+    redirect_to signin_url, notice: "Please sign in." unless signed_in?
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    @created_user = @user.created_user
+    unless current_user?(@user) && current_user?(@created_user)
+      redirect_to(root_url)
+    end
   end
 end

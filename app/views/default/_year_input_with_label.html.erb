@@ -1,0 +1,10 @@
+<div class="form-group sandbox-container birthday">
+  <label for="<%= "#{ name.dasherize }" %>" class="col-sm-3 control-label">
+    <%= label_text + ("*" if required_field).to_s %>
+  </label>
+  <div class="col-sm-<%= size ||= "3" %>">
+    <%= class_name.date_field(name,
+                              id: name.dasherize,
+                              class: "form-control") %>
+  </div>
+</div>

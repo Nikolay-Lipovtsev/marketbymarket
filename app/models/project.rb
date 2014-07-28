@@ -11,8 +11,10 @@
 #
 
 class Project < ActiveRecord::Base
-  has_many :users, dependent: :destroy
-  accepts_nested_attributes_for :users
+
+  has_many :user_projects, dependent: :destroy
+  has_many :users, through: :user_projects
+#  accepts_nested_attributes_for :users
 
   before_save { name.downcase! }
 
@@ -20,7 +22,7 @@ class Project < ActiveRecord::Base
   VALID_NAME_REGEX = /\A[\w\_]+\z/i
   validates :name, presence: true, format: { with: VALID_NAME_REGEX }, uniqueness: { case_sensitive: false }
 
-  def to_param
-    self.name
-  end
+#  def to_param
+#    self.name
+#  end
 end

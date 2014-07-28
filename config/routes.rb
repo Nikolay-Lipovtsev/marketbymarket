@@ -1,21 +1,12 @@
 Marketbymarket::Application.routes.draw do
-  #Static pages routes
-  root                to: 'static_pages#home'
 
-  #Sign up routes
-  get   '/signup',    to: 'projects#new'
-  resources :projects, only: :create
-
-  #Sign in out routes
-  resources :sessions, only: [:new, :create, :destroy]
-  get   '/signin',    to: 'sessions#new'
-  match '/signout',   to: 'sessions#destroy', via: :delete
-
-  #Projects routes
-  resources :projects, path: '/', only: [:show] do
-    resources :users
-  end
-
+  resources :users, only: [:index, :show, :new, :create, :edit, :destroy]
+  resources :sessions, only: [:create]
+  root  "static_pages#home"
+  match "/signup",  to: "signup#new",           via: "get"
+  match "/signup",  to: "signup#create",        via: "post"
+  match "/signin",  to: "sessions#new",         via: "get"
+  match "/signout", to: "sessions#destroy",     via: "delete"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

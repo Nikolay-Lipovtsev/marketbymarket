@@ -9,6 +9,6 @@
     <%= l user.created_at, :format => :short %>
   </td>
   <td>
-    <%= link_to "Изменить", [:edit, current_user.project, user] %>
+    <%= link_to "Изменить", edit_user_path(current_user) %>
   </td>
 </tr>

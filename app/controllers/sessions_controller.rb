@@ -1,14 +1,17 @@
 class SessionsController < ApplicationController
 
+  layout "signup"
+
   def new
   end
 
   def create
-    user = User.find_by_email(params[:session][:email].downcase)
+    user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       sign_in user
-      redirect_to user.project
+      redirect_back_or user
     else
+      flash.now[:authenticate_error] = t('sign_in.error.invalid_information')
       render 'new'
     end
   end

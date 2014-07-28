@@ -1,0 +1,11 @@
+<div class="form-group">
+  <label for=<%= "#{ name.to_s.gsub("_", "-") }" %> class="col-sm-3 control-label">
+    <%= t("project.custom.lable.language") %>
+  </label>
+  <div class="col-sm-3">
+    <%= class_name.select name,
+                          options_for_select(language_list, class_name.object.language),
+                          {},
+                          { class: "form-control" } %>
+  </div>
+</div>

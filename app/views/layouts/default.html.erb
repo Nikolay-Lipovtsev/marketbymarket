@@ -7,11 +7,17 @@
 
   <%= stylesheet_link_tag    "application",   media: "all" %>
   <%= stylesheet_link_tag    "custom",   media: "all" %>
-  <%= stylesheet_link_tag    "projects", media: "all" %>
+  <%= stylesheet_link_tag    "default", media: "all" %>
   <%= stylesheet_link_tag    "sidebar",  media: "all" %>
 
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "projects" %>
+  <%= javascript_include_tag "default" %>
+
+  <%= javascript_tag do %>
+      defaultLocale = "<%= I18n.default_locale %>";
+      locale = "<%= I18n.locale %>";
+      dateNow = "<%= Time.now.strftime("%d/%m/%Y") %>"
+  <% end %>
 
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
@@ -21,11 +27,9 @@
 <div id="wrapper">
 
   <!-- Sidebar -->
-
-  <%= render "layouts/projects_side_bar" %>
+  <%= render "layouts/default_side_bar" %>
 
   <!-- Page content -->
-
   <div id="page-content-wrapper" class="container">
 
     <!-- Content header -->
@@ -33,22 +37,28 @@
       <div class="content-header">
 
         <!-- Current user -->
-
         <div id="current-user">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <%= image_tag("demo_avatar.jpg", alt: "Avatar", class: "img-circle avatar-sm") %>
-            <p><small>&nbspПрохор Митрич</small></p>
+            <p>&nbsp;<%= short_user_name(current_user) %></p>
             <i class="fa fa-angle-down fa-lg"></i>
           </a>
           <ul class="dropdown-menu pull-right" role="menu">
-            <li><a href="#"><i class="fa fa-lg fa-users"></i><%= t("project.current_user.profile") %></a></li>
+            <li>
+              <%= link_to user_path(current_user) do %>
+                  <i class="fa fa-lg fa-users"></i> <%= t("project.current_user.profile") %>
+              <% end %>
+            </li>
             <li class="divider"></li>
-            <li><a href="#"><i class="fa fa-lg fa-sign-out"></i><%= t("project.current_user.signout") %></a></li>
+            <li>
+              <%= link_to signout_path, method: "delete" do %>
+                  <i class="fa fa-lg fa-sign-out"></i> <%= t("project.current_user.signout") %>
+              <% end %>
+            </li>
           </ul>
         </div>
 
         <!-- Menu toggle -->
-
         <div id="btn-menu-toogle" class="col-sm-12 visible-xs">
           <button id="menu-toggle"
                   type="button"
@@ -60,7 +70,6 @@
         </div>
 
         <!-- Content title -->
-
         <div class="title col-sm-6">
           <div class="row">
             <div class="col-sm-12">
@@ -69,8 +78,8 @@
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <%= link_to new_project_user_path do %>
-                  <i class="fa fa-plus fa-fw"></i>&nbspДобавить пользователя
+              <%= link_to new_user_path do %>
+                  <i class="fa fa-plus fa-fw"></i>&nbsp;Добавить пользователя
               <% end %>
             </div>
           </div>
@@ -81,7 +90,6 @@
     </div>
 
     <!-- Content -->
-
     <div class="page-content inset">
       <%= yield %>
       <div class="row">
@@ -93,6 +101,5 @@
   </div>
 
 </div><!-- /#wrapper -->
-
 </body>
 </html>

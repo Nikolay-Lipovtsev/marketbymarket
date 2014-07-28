@@ -1,9 +1,9 @@
 class ProjectsController < ApplicationController
-  layout 'signup', only: [:new, :create]
+  #layout 'signup', only: [:new, :create]
 
-  def new
+  def signup
     @project = Project.new
-    @project.users.build
+    @project.people.build
   end
 
   def show
@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
       sign_in @project.users.first
       redirect_to @project
     else
-      render 'new'
+      render 'signup'
     end
   end
 

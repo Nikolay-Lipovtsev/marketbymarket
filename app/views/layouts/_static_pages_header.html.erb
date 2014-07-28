@@ -22,7 +22,7 @@
                 <%= t("static_pages.header.account") %> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to current_user.project.name, current_user.project, data: { no_turbolink: true } %></li>
+                <li><%= link_to current_user.email, current_user, data: { no_turbolink: true } %></li>
                 <li class="divider"></li>
                 <li>
                   <%= link_to t("static_pages.header.sign_out_link"), signout_path, method: :delete %>

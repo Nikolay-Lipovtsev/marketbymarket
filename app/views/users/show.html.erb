@@ -1,0 +1,53 @@
+<% provide(:title, short_user_name(current_user)) %>
+<% provide(:header_title, t("project.users.new.head_title")) %>
+
+<div class="page-content inset">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default panel-sm center-block">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-12 margin-top-20 margin-bottom-15">
+              <%= image_tag("user_no_foto.jpg", alt: "Avatar", class: "img-circle avatar-lg center-block") %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <h3><%= @user.person.first_name %>&nbsp;<%= @user.person.last_name %></h3>
+            </div>
+          </div>
+          <div class="col-sm-12 border-row margin-bottom-40 margin-top-40"></div>
+          <div class="row">
+            <div class="col-sm-9 col-sm-offset-3 margin-bottom-20 text-muted">
+              <h4 class="lead">Аккаунт</h4>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">Эл. почта</label>
+            <div class="col-sm-7">
+              <%= @user.email %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">Фамилия</label>
+            <div class="col-sm-7">
+              <%= @user.person.last_name %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">Имя</label>
+            <div class="col-sm-7">
+              <%= @user.person.first_name %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">Имя</label>
+            <div class="col-sm-7">
+              <%= link_to "Редактировать", edit_user_path, class: "btn btn-default", role: "button"  %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

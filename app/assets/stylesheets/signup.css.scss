@@ -4,9 +4,6 @@
 
 /* Content */
 
-.sign-up-form {
-  background-color: $WhiteSmoke;
-}
 
 /* Footer */
 
@@ -20,7 +17,8 @@
 }
 
 .bg-img {
-  background: asset-url("bg_sign.jpg", image) bottom no-repeat;
+  /* background-color: $MidWhiteSmoke; */
+  background: image-url("bg_sign.jpg") 100% 100% repeat;
   background-size: cover;
 }
 
@@ -43,4 +41,10 @@
   position: absolute;
   padding: 7px 30px;
   pointer-events: none;
+}
+
+@media (min-width: 480px) {
+  .fix-width {
+    width: 400px;
+  }
 }

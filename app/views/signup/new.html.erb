@@ -1,0 +1,68 @@
+<% provide(:title, t("sign_up.title")) %>
+<% provide(:page_header_title, t('sign_up.page_header_title')) %>
+<% provide(:panel_header_title, t('sign_up.panel_header_title')) %>
+<% provide(:panel_footer_link, raw(t("sign_up.panel_footer_link",
+                                     sign_in_link: link_to(t("sign_up.sign_in_link_text"), signin_path)))) %>
+
+<%= form_for(@user, url: signup_path, html: { role: "form" }) do |user_fields| %>
+    <%= user_fields.fields_for :person do |person_fields| %>
+
+
+        <%= person_fields.text_field(:last_name) %>
+        <%= sign_page_input_tag("sign_up", person_fields, :first_name, "user") %>
+        <%= sign_page_input_tag("sign_up", person_fields, :birthday, "calendar", "date", "6", false) %>
+        <%= render "people/sex_radio_button_tag", group: person_fields %>
+
+    <% end %><!-- /fields_for person -->
+
+    <%= sign_page_input_tag("sign_up", user_fields, :email, "envelope", "email") %>
+    <%= sign_page_input_tag("sign_up", user_fields, :password, "lock", "password") %>
+    <%= sign_page_input_tag("sign_up", user_fields, :password_confirmation, "lock", "password") %>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="checkbox">
+          <label>
+            <%= fields_for :additional do |additional_fields| %>
+                <%= additional_fields.check_box :remember_me %> <%= t('sign_up.remember_me_check_box') %>
+            <% end %>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row margin-top-20 margin-bottom-20">
+      <!-- Button trigger request for agreement -->
+      <div class="col-md-12">
+        <button type="button" class="btn btn-primary"
+                data-toggle="modal" data-target="#request-for-agreement">
+          <%= t('sign_up.sign_up_button') %>
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal request for agreement -->
+    <div class="modal fade" id="request-for-agreement" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-body">
+            <p>
+              <%= raw t("sign_up.modal_request_for_agreement",
+                        terms_link: link_to(t("sign_up.terms_link_text"), "#"),
+                        usage_policy_link: link_to(t("sign_up.usage_policy_link_text"), "#")) %>
+            </p>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              <%= t("sign_up.disagree_button") %>
+            </button>
+            <%= user_fields.submit t("sign_up.agree_button"), class: "btn btn-primary" %>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+<% end %><!-- /form -->
