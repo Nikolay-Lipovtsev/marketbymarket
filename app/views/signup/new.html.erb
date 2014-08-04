@@ -4,20 +4,30 @@
 <% provide(:panel_footer_link, raw(t("sign_up.panel_footer_link",
                                      sign_in_link: link_to(t("sign_up.sign_in_link_text"), signin_path)))) %>
 
-<%= form_for(@user, url: signup_path, html: { role: "form" }) do |user_fields| %>
-    <%= user_fields.fields_for :person do |person_fields| %>
+<%= bootstrap_form_for(@user, url: signup_path) do |user_f| %>
+    <%= user_f.fields_for :person do |person_f| %>
 
 
-        <%= person_fields.text_field(:last_name) %>
-        <%= sign_page_input_tag("sign_up", person_fields, :first_name, "user") %>
-        <%= sign_page_input_tag("sign_up", person_fields, :birthday, "calendar", "date", "6", false) %>
-        <%= render "people/sex_radio_button_tag", group: person_fields %>
+        <%= person_f.text_field(:last_name, invisible_label: true, control_col: 8) %>
+
+
+
+        <%= person_f.phone_field(:first_name, invisible_label: true) %>
+        <%= person_f.date_field(:birthday, invisible_label: true, control_col: 5) %>
+        <% language_list.each do |val, label_text| %>
+            <%= person_f.label(:sex, "TEST") do %>
+                <%= person_f.radio_button :sex, val %>
+                <%= label_text %>
+            <% end %>
+        <% end %>
+        <%= render "people/sex_radio_button_tag", group: person_f %>
+
 
     <% end %><!-- /fields_for person -->
 
-    <%= sign_page_input_tag("sign_up", user_fields, :email, "envelope", "email") %>
-    <%= sign_page_input_tag("sign_up", user_fields, :password, "lock", "password") %>
-    <%= sign_page_input_tag("sign_up", user_fields, :password_confirmation, "lock", "password") %>
+    <%= user_f.text_field(:email, invisible_label: true) %>
+    <%= user_f.password_field(:password, invisible_label: true) %>
+    <%= user_f.password_field(:password_confirmation, invisible_label: true) %>
 
     <div class="row">
       <div class="col-md-12">
@@ -59,7 +69,7 @@
             <button type="button" class="btn btn-default" data-dismiss="modal">
               <%= t("sign_up.disagree_button") %>
             </button>
-            <%= user_fields.submit t("sign_up.agree_button"), class: "btn btn-primary" %>
+            <%= user_f.submit t("sign_up.agree_button"), class: "btn btn-primary" %>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->

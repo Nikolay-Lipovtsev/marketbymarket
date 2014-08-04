@@ -1,8 +1,9 @@
 module BootstrapFormHelper
 
   def bootstrap_form_for(object, options={}, &block)
-    #options.reverse_merge!({builder: BootstrapBuilderHelper::BootstrapBuilder::BootstrapControlHelper})
-    options.reverse_merge!({builder: BootstrapControlHelper::BootstrapForm})
+    options[:html] ||= {}
+    options[:html][:role] = "form"
+    options[:builder] ||= BootstrapControlHelper::BootstrapForm
 
     layout = case options[:layout]
                when :inline
@@ -12,10 +13,14 @@ module BootstrapFormHelper
              end
 
     if layout
-      options[:html] ||= {}
       options[:html][:class] = [options[:html][:class], layout].compact.join(" ")
     end
+    disabled(options) do
+      form_for(object, options, &block)
+    end
+  end
 
-    form_for(object, options, &block)
+  def disabled(options={})
+    options[:disabled] ? content_tag(:fieldset, "", disabled: true) { yield } : yield
   end
 end

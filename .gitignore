@@ -16,5 +16,18 @@
 /tmp
 
 # Directory-based project format
-.DS_Store
-.idea/
+.idea
+.idea/.DS_Store
+.idea/.generators
+.idea/.name
+.idea/.rakeTasks
+.idea/my-project.iml
+.idea/dataSources.ids
+.idea/dataSources.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/scopes
+.idea/scopes/scope_settings.xml
+.idea/vcs.xml
+.idea/workspace.xml

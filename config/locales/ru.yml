@@ -1,5 +1,23 @@
 ru:
 
+  helpers:
+
+    label:
+
+      user:
+
+        email: 'Электронная почта'
+        password: 'Пароль'
+        password_confirmation: 'Ещё раз парол'
+
+      person:
+
+        last_name: 'Фамилия'
+        first_name: 'Имя'
+        middle_name: 'Отчество'
+        birthday: 'Дата рождения'
+        sex: 'Пол'
+
   models:
 
     person:

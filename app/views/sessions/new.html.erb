@@ -4,7 +4,7 @@
 <% provide(:panel_footer_link, raw(t("sign_in.panel_footer_link",
                                      sign_up_link: link_to(t("sign_in.sign_up_link_text"), signup_path)))) %>
 
-<%= bootstrap_form_for(:session, url: sessions_path, html: { role: "form" }) do |session_fields| %>
+<%= form_for(:session, url: sessions_path, builder: BootstrapControlHelper::BootstrapForm, html: { role: "form" }) do |session_fields| %>
     <%= session_fields.text_field :email %>
     <%= session_fields.password_field(:password, control_col: 8) %>
 
