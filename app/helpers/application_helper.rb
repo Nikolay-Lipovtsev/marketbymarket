@@ -13,4 +13,8 @@ module ApplicationHelper
   def language_list
     [['Русский', 'ru'], ['English', 'en']]
   end
+
+  def sex_list
+    [['Мужской', 'm'], ['Женский', 'f']]
+  end
 end

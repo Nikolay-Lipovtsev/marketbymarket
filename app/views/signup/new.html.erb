@@ -4,12 +4,31 @@
 <% provide(:panel_footer_link, raw(t("sign_up.panel_footer_link",
                                      sign_in_link: link_to(t("sign_up.sign_in_link_text"), signin_path)))) %>
 
-<%= bootstrap_form_for(@user, url: signup_path) do |user_f| %>
+<%= form_for(@user, url: signup_path, layout: :horizontal) do |user_f| %>
     <%= user_f.fields_for :person do |person_f| %>
 
+        <div class="row">
+        <div class="col-sm-8">
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="sr-only">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+        </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="">
+              Option one is this and that&mdash;be sure to include why it's great
+            </label>
+          </div>
+          <div class="checkbox disabled">
+            <label>
+              <input type="checkbox" value="" disabled>
+              Option two is disabled
+            </label>
+          </div>
+        </div>
+        </div>
 
         <%= person_f.text_field(:last_name, invisible_label: true, control_col: 8) %>
-
 
 
         <%= person_f.phone_field(:first_name, invisible_label: true) %>

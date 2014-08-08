@@ -1,9 +1,26 @@
 module BootstrapFormHelper
 
   def bootstrap_form_for(object, options={}, &block)
+    # Options for form
+    #
+    # :layout
+    # :builder
+    # :disabled
+    #
+    # Common options for all controls in form:
+    #
+    # :label_col
+    # :control_col
+    # :control_offset
+    # :invisible_label
+    # :grid_system
+    #
+    # For example, to render a form with invisible labels
+    # The HTML generated for this would be (modulus formatting):
+
     options[:html] ||= {}
     options[:html][:role] = "form"
-    options[:builder] ||= BootstrapControlHelper::BootstrapForm
+    options[:builder] ||= BootstrapControlHelper::FormBuilder
 
     layout = case options[:layout]
                when :inline
