@@ -4,55 +4,25 @@
 <% provide(:panel_footer_link, raw(t("sign_up.panel_footer_link",
                                      sign_in_link: link_to(t("sign_up.sign_in_link_text"), signin_path)))) %>
 
-<%= form_for(@user, url: signup_path, layout: :horizontal) do |user_f| %>
+<%= bootstrap_form_for(@user, url: signup_path) do |user_f| %>
     <%= user_f.fields_for :person do |person_f| %>
 
-        <div class="row">
-        <div class="col-sm-8">
-        <div class="form-group">
-          <label for="exampleInputEmail1" class="sr-only">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-        </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" value="">
-              Option one is this and that&mdash;be sure to include why it's great
-            </label>
-          </div>
-          <div class="checkbox disabled">
-            <label>
-              <input type="checkbox" value="" disabled>
-              Option two is disabled
-            </label>
-          </div>
-        </div>
-        </div>
-
-        <%= person_f.text_field(:last_name, invisible_label: true, control_col: 8) %>
-
-
-        <%= person_f.phone_field(:first_name, invisible_label: true) %>
-        <%= person_f.date_field(:birthday, invisible_label: true, control_col: 5) %>
-        <% language_list.each do |val, label_text| %>
-            <%= person_f.label(:sex, "TEST") do %>
-                <%= person_f.radio_button :sex, val %>
-                <%= label_text %>
-            <% end %>
+        <%= control_group do %>
+            <%= person_f.control_group_label(:last_name) %>
         <% end %>
-        <%= render "people/sex_radio_button_tag", group: person_f %>
-
-
+        <%= control_group do %>
+            <%= person_f.text_field(:last_name, control_col: 6, row_disable: true, invisible_label: true) %>
+            <%= person_f.text_field(:last_name, control_col: 3, row_disable: true, invisible_label: true) %>
+        <% end %>
     <% end %><!-- /fields_for person -->
 
-    <%= user_f.text_field(:email, invisible_label: true) %>
-    <%= user_f.password_field(:password, invisible_label: true) %>
-    <%= user_f.password_field(:password_confirmation, invisible_label: true) %>
-
+    <%= user_f.text_field(:email) %>
     <div class="row">
       <div class="col-md-12">
         <div class="checkbox">
           <label>
             <%= fields_for :additional do |additional_fields| %>
+
                 <%= additional_fields.check_box :remember_me %> <%= t('sign_up.remember_me_check_box') %>
             <% end %>
           </label>

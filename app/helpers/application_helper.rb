@@ -10,6 +10,10 @@ module ApplicationHelper
     end
   end
 
+  def to_b(str)
+    str && str.match(/^(true|t|yes|y|1)$/i)
+  end
+
   def language_list
     [['Русский', 'ru'], ['English', 'en']]
   end

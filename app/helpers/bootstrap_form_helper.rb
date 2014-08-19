@@ -1,17 +1,17 @@
 module BootstrapFormHelper
 
-  def bootstrap_form_for(object, options={}, &block)
+  def bootstrap_form_for(object, options = {}, &block)
     # Options for form
     #
     # :layout
     # :builder
     # :disabled
     #
-    # Common options for all controls in form:
+    # Common form options for all controls in form:
     #
     # :label_col
     # :control_col
-    # :control_offset
+    # :offset_control_col
     # :invisible_label
     # :grid_system
     #
@@ -39,5 +39,13 @@ module BootstrapFormHelper
 
   def disabled(options={})
     options[:disabled] ? content_tag(:fieldset, "", disabled: true) { yield } : yield
+  end
+
+  def bootstrap_row
+    content_tag(:div, class: "row") { yield }
+  end
+
+  def control_group
+    content_tag(:div, class: "row") { yield }
   end
 end
