@@ -7,13 +7,10 @@
 <%= bootstrap_form_for(@user, url: signup_path) do |user_f| %>
     <%= user_f.fields_for :person do |person_f| %>
 
-        <%= control_group do %>
-            <%= person_f.control_group_label(:last_name) %>
-        <% end %>
-        <%= control_group do %>
-            <%= person_f.text_field(:last_name, control_col: 6, row_disable: true, invisible_label: true) %>
-            <%= person_f.text_field(:last_name, control_col: 3, row_disable: true, invisible_label: true) %>
-        <% end %>
+        <%= person_f.text_area(:last_name) %>
+        <%= person_f.text_field(:last_name, control_col: 3) %>
+        <%= person_f.check_box(:last_name) %>
+
     <% end %><!-- /fields_for person -->
 
     <%= user_f.text_field(:email) %>
@@ -22,8 +19,7 @@
         <div class="checkbox">
           <label>
             <%= fields_for :additional do |additional_fields| %>
-
-                <%= additional_fields.check_box :remember_me %> <%= t('sign_up.remember_me_check_box') %>
+            <%= additional_fields.check_box :remember_me %> <%= t('sign_up.remember_me_check_box') %>
             <% end %>
           </label>
         </div>

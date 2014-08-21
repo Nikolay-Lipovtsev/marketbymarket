@@ -1,5 +1,8 @@
+require 'bootstrap_halper'
+
 module BootstrapControlHelper
   class FormBuilder < ActionView::Helpers::FormBuilder
+    include BootstrapHelper
 
     COMMON_OPTIONS = [:layout, :label_class, :label_col, :offset_label_col, :label_text, :invisible_label, :required,
                       :control_class, :control_col, :offset_control_col, :placeholder, :popover, :error_disable,
@@ -23,7 +26,7 @@ module BootstrapControlHelper
     FIELD_HELPERS.each do |helper|
       define_method helper do |field, *args|
         options = args.detect{ |a| a.is_a?(Hash) } || {}
-        args
+        get_common_form_options(options)
         generate_form_group(helper, field, options) do
           options[:placeholder] ||= I18n.t("helpers.label.#{@object.class.to_s.downcase}.#{field}") if options[:placeholder] || options[:invisible_label]
           options[:class] = ["form-control", options[:class]].compact.join(" ")
@@ -35,10 +38,10 @@ module BootstrapControlHelper
     CHECK_BOX_AND_RADIO_HELPERS.each do |helper|
       define_method helper do |field, *args|
         options = args.detect{ |a| a.is_a?(Hash) } || {}
-        #get_common_form_options(options)
-        #generate_form_group_row(options) do
-        "Test check box and radio"
-        #end
+        get_common_form_options(options)
+        generate_form_group(helper, field, options) do
+          super(field, options.slice(*CONTROL_OPTIONS))
+        end
       end
     end
 
@@ -69,7 +72,6 @@ module BootstrapControlHelper
     end
 
     def generate_form_group(helper, field, options = {}, &block)
-      get_common_form_options(options)
       options[:control_col] ||= default_date_col if helper == "date_field"
       generate_form_group_row(options) do
         options[:group_class] = [options[:group_class], grid_system_offset_class(options[:grid_system], options[:offset_control_col])].compact.join(" ") if options[:offset_control_col] && grid_system_in_form_group?(helper, options)
