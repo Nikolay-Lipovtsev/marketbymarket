@@ -16,6 +16,7 @@
 /tmp
 
 # Directory-based project format
+
 .idea
 .idea/.DS_Store
 .idea/.generators
@@ -30,6 +31,7 @@
 .idea/scopes
 .idea/scopes/scope_settings.xml
 .idea/vcs.xml
+/.idea/
 .idea/workspace.xml
 **/.idea/workspace.xml
 /**/.idea/workspace.xml
