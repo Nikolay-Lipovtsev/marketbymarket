@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b47b134f-3964-4fad-91c6-554c631f7312" name="Default" comment="Edit gitignore">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    <list default="true" id="b47b134f-3964-4fad-91c6-554c631f7312" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore_global" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <ignored path="marketbymarket.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -14,31 +16,31 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/marketbymarket@Run_spec__bootstrap_control_helper_spec___marketbymarket.coverage" NAME="Run spec 'bootstrap_control_helper_spec': marketbymarket Coverage Results" MODIFIED="1408602496315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@db_migrate_status__marketbymarket.coverage" NAME="db:migrate:status: marketbymarket Coverage Results" MODIFIED="1408645757242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@sign_up_page_visit_sign_up_page__marketbymarket.coverage" NAME="sign up page visit sign up page: marketbymarket Coverage Results" MODIFIED="1403623867760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@Development__marketbymarket.coverage" NAME="Development: marketbymarket Coverage Results" MODIFIED="1408647903068" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@Run_spec__authentication_pages_spec___marketbymarket.coverage" NAME="Run spec 'authentication_pages_spec': marketbymarket Coverage Results" MODIFIED="1403437712507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@All_tests_in_requests__marketbymarket.coverage" NAME="All tests in requests: marketbymarket Coverage Results" MODIFIED="1403437760794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spec/requests" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@Production__marketbymarket.coverage" NAME="Production: marketbymarket Coverage Results" MODIFIED="1403623962153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@Run_spec__static_pages_spec___marketbymarket.coverage" NAME="Run spec 'static_pages_spec': marketbymarket Coverage Results" MODIFIED="1403437744570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@Sign_up_page_Visit_sign_up_page__marketbymarket.coverage" NAME="Sign up page Visit sign up page: marketbymarket Coverage Results" MODIFIED="1403105424297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@db_test_prepare__marketbymarket.coverage" NAME="db:test:prepare: marketbymarket Coverage Results" MODIFIED="1387951061286" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@Run_spec__person_spec___marketbymarket.coverage" NAME="Run spec 'person_spec': marketbymarket Coverage Results" MODIFIED="1403271905269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@static_pages__marketbymarket.coverage" NAME="static pages: marketbymarket Coverage Results" MODIFIED="1408602421728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@Annotate_Gem.coverage" NAME="Annotate Gem Coverage Results" MODIFIED="1403809708754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@db_rollback__marketbymarket.coverage" NAME="db:rollback: marketbymarket Coverage Results" MODIFIED="1401954641832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@All_tests_in_spec__marketbymarket.coverage" NAME="All tests in spec: marketbymarket Coverage Results" MODIFIED="1403437777255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spec" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@All_specs_in_models__marketbymarket.coverage" NAME="All specs in models: marketbymarket Coverage Results" MODIFIED="1402237964290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@Run_spec__signup_page_spec___marketbymarket.coverage" NAME="Run spec 'signup_page_spec': marketbymarket Coverage Results" MODIFIED="1403623881528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@sign_up_page_sign_up_with_valid_information__marketbymarket.coverage" NAME="sign up page sign up with valid information: marketbymarket Coverage Results" MODIFIED="1403432535021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@spec__marketbymarket.coverage" NAME="spec: marketbymarket Coverage Results" MODIFIED="1403623434267" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@Run_spec__user_spec___marketbymarket.coverage" NAME="Run spec 'user_spec': marketbymarket Coverage Results" MODIFIED="1403440614615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@authentication_sign_in_with_valid_information__marketbymarket.coverage" NAME="authentication sign in with valid information: marketbymarket Coverage Results" MODIFIED="1403421800365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
-    <SUITE FILE_PATH="coverage/marketbymarket@User_return_value_of_authenticate_method_with_invalid_password__marketbymarket.coverage" NAME="User return value of authenticate method with invalid password: marketbymarket Coverage Results" MODIFIED="1403459798251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
     <SUITE FILE_PATH="coverage/marketbymarket@All_specs_in_requests__marketbymarket.coverage" NAME="All specs in requests: marketbymarket Coverage Results" MODIFIED="1403017104224" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@Annotate_Gem.coverage" NAME="Annotate Gem Coverage Results" MODIFIED="1403809708754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@db_migrate_status__marketbymarket.coverage" NAME="db:migrate:status: marketbymarket Coverage Results" MODIFIED="1408645757242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@spec__marketbymarket.coverage" NAME="spec: marketbymarket Coverage Results" MODIFIED="1403623434267" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@db_rollback__marketbymarket.coverage" NAME="db:rollback: marketbymarket Coverage Results" MODIFIED="1401954641832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@Run_spec__authentication_pages_spec___marketbymarket.coverage" NAME="Run spec 'authentication_pages_spec': marketbymarket Coverage Results" MODIFIED="1403437712507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@Run_spec__bootstrap_control_helper_spec___marketbymarket.coverage" NAME="Run spec 'bootstrap_control_helper_spec': marketbymarket Coverage Results" MODIFIED="1408602496315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@sign_up_page_sign_up_with_valid_information__marketbymarket.coverage" NAME="sign up page sign up with valid information: marketbymarket Coverage Results" MODIFIED="1403432535021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@Development__marketbymarket.coverage" NAME="Development: marketbymarket Coverage Results" MODIFIED="1408647903068" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@Run_spec__user_spec___marketbymarket.coverage" NAME="Run spec 'user_spec': marketbymarket Coverage Results" MODIFIED="1403440614615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@Production__marketbymarket.coverage" NAME="Production: marketbymarket Coverage Results" MODIFIED="1403623962153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
     <SUITE FILE_PATH="coverage/marketbymarket@All_specs_in_spec__marketbymarket.coverage" NAME="All specs in spec: marketbymarket Coverage Results" MODIFIED="1403105446740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
     <SUITE FILE_PATH="coverage/marketbymarket@db_migrate__marketbymarket.coverage" NAME="db:migrate: marketbymarket Coverage Results" MODIFIED="1408645688964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@Run_spec__person_spec___marketbymarket.coverage" NAME="Run spec 'person_spec': marketbymarket Coverage Results" MODIFIED="1403271905269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@sign_up_page_visit_sign_up_page__marketbymarket.coverage" NAME="sign up page visit sign up page: marketbymarket Coverage Results" MODIFIED="1403623867760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@Sign_up_page_Visit_sign_up_page__marketbymarket.coverage" NAME="Sign up page Visit sign up page: marketbymarket Coverage Results" MODIFIED="1403105424297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@static_pages__marketbymarket.coverage" NAME="static pages: marketbymarket Coverage Results" MODIFIED="1408602421728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@Run_spec__static_pages_spec___marketbymarket.coverage" NAME="Run spec 'static_pages_spec': marketbymarket Coverage Results" MODIFIED="1403437744570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@All_specs_in_models__marketbymarket.coverage" NAME="All specs in models: marketbymarket Coverage Results" MODIFIED="1402237964290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@All_tests_in_spec__marketbymarket.coverage" NAME="All tests in spec: marketbymarket Coverage Results" MODIFIED="1403437777255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spec" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@Run_spec__signup_page_spec___marketbymarket.coverage" NAME="Run spec 'signup_page_spec': marketbymarket Coverage Results" MODIFIED="1403623881528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@User_return_value_of_authenticate_method_with_invalid_password__marketbymarket.coverage" NAME="User return value of authenticate method with invalid password: marketbymarket Coverage Results" MODIFIED="1403459798251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@db_test_prepare__marketbymarket.coverage" NAME="db:test:prepare: marketbymarket Coverage Results" MODIFIED="1387951061286" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@All_tests_in_requests__marketbymarket.coverage" NAME="All tests in requests: marketbymarket Coverage Results" MODIFIED="1403437760794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spec/requests" MODULE_NAME="marketbymarket" />
+    <SUITE FILE_PATH="coverage/marketbymarket@authentication_sign_in_with_valid_information__marketbymarket.coverage" NAME="authentication sign in with valid information: marketbymarket Coverage Results" MODIFIED="1403421800365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="marketbymarket" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -55,18 +57,28 @@
       <file leaf-file-name="bootstrap_control_helper.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/helpers/bootstrap_control_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1523" max-vertical-offset="2340">
-              <caret line="136" column="44" selection-start-line="136" selection-start-column="7" selection-end-line="136" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1345" max-vertical-offset="2340">
+              <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8586762" vertical-offset="0" max-vertical-offset="630">
-              <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+            <state vertical-scroll-proportion="-19.2" vertical-offset="0" max-vertical-offset="570">
+              <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore_global" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore_global">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.08941878" vertical-offset="0" max-vertical-offset="671">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -144,7 +156,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/spec/models/project_spec.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/_custom_colors.css.scss" />
         <option value="$PROJECT_DIR$/app/helpers/signup_helper.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/signup.js" />
@@ -195,6 +206,7 @@
         <option value="$PROJECT_DIR$/app/helpers/bootstrap_control_helper.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/.gitignore_global" />
       </list>
     </option>
   </component>
@@ -206,8 +218,8 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -254,8 +266,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="RailsProjectView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -330,6 +340,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="RailsProjectView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -810,35 +822,27 @@
       <created>1408468835527</created>
       <updated>1408468835527</updated>
     </task>
-    <task id="LOCAL-00021" summary="Edit gitignore">
-      <created>1408718254479</created>
-      <updated>1408718254479</updated>
+    <task id="LOCAL-00021" summary="Start develop on iMac">
+      <created>1408676453174</created>
+      <updated>1408676453174</updated>
     </task>
     <task id="LOCAL-00022" summary="Edit gitignore">
-      <created>1408718350313</created>
-      <updated>1408718350313</updated>
+      <created>1408725568159</created>
+      <updated>1408725568159</updated>
     </task>
     <task id="LOCAL-00023" summary="Edit gitignore">
-      <created>1408718380490</created>
-      <updated>1408718380490</updated>
+      <created>1408725589519</created>
+      <updated>1408725589519</updated>
     </task>
     <task id="LOCAL-00024" summary="Edit gitignore">
-      <created>1408718412828</created>
-      <updated>1408718412828</updated>
+      <created>1408725613072</created>
+      <updated>1408725613072</updated>
     </task>
     <task id="LOCAL-00025" summary="Edit gitignore">
-      <created>1408718900814</created>
-      <updated>1408718900814</updated>
+      <created>1408725665727</created>
+      <updated>1408725665727</updated>
     </task>
-    <task id="LOCAL-00026" summary="Edit gitignore">
-      <created>1408719221603</created>
-      <updated>1408719221603</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Edit gitignore">
-      <created>1408719297900</created>
-      <updated>1408719297900</updated>
-    </task>
-    <option name="localTasksCounter" value="28" />
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -862,28 +866,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32686085" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28738317" sideWeight="0.49928468" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32476637" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28764477" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32335907" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32827103" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20457797" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23962805" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24227902" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28738317" sideWeight="0.5007153" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30147895" sideWeight="0.49928468" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3259346" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34498835" sideWeight="0.5007153" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3088803" sideWeight="0.49928468" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32528958" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38551402" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38551402" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -919,6 +923,7 @@
     <MESSAGE value="Close old version and start new bootstrap form helper&#10;" />
     <MESSAGE value="Create first block" />
     <MESSAGE value="End common fields" />
+    <MESSAGE value="Start develop on iMac" />
     <MESSAGE value="Edit gitignore" />
     <option name="LAST_COMMIT_MESSAGE" value="Edit gitignore" />
   </component>
@@ -928,14 +933,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="450">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/bootstrap_form_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="720">
@@ -1286,16 +1283,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/bootstrap_control_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1523" max-vertical-offset="2340">
-          <caret line="136" column="44" selection-start-line="136" selection-start-column="7" selection-end-line="136" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1345" max-vertical-offset="2340">
+          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8586762" vertical-offset="0" max-vertical-offset="630">
-          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        <state vertical-scroll-proportion="-19.2" vertical-offset="0" max-vertical-offset="570">
+          <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore_global">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08941878" vertical-offset="0" max-vertical-offset="671">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
           <folding />
         </state>
       </provider>
