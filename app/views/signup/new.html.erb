@@ -7,7 +7,6 @@
 <%= bootstrap_form_for(@user, url: signup_path) do |user_f| %>
     <%= user_f.fields_for :person do |person_f| %>
 
-
         <%= person_f.text_area(:last_name) %>
         <%= person_f.text_field(:last_name, control_col: 3) %>
         <%= person_f.check_box(:last_name) %>
