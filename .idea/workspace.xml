@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b47b134f-3964-4fad-91c6-554c631f7312" name="Default" comment="">
+    <list default="true" id="b47b134f-3964-4fad-91c6-554c631f7312" name="Default" comment="Edit gitignore">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <ignored path="marketbymarket.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,8 +66,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.99284434" vertical-offset="0" max-vertical-offset="645">
-              <caret line="37" column="45" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.8586762" vertical-offset="0" max-vertical-offset="630">
+              <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -830,7 +831,11 @@
       <created>1408718900814</created>
       <updated>1408718900814</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Edit gitignore">
+      <created>1408719221603</created>
+      <updated>1408719221603</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -1286,8 +1291,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.99284434" vertical-offset="0" max-vertical-offset="645">
-          <caret line="37" column="45" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.8586762" vertical-offset="0" max-vertical-offset="630">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
           <folding />
         </state>
       </provider>
