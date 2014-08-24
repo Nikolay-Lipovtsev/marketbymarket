@@ -31,3 +31,7 @@
 .idea/scopes/scope_settings.xml
 .idea/vcs.xml
 .idea/workspace.xml
+
+marketbymarket/src/.idea/workspace.xml
+**/.idea/workspace.xml
+/**/.idea/workspace.xml
