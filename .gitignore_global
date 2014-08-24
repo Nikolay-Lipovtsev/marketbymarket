@@ -20,3 +20,7 @@
 # and, if using gradle::
 # .idea/gradle.xml
 # .idea/libraries
+
+marketbymarket/src/.idea/workspace.xml
+**/.idea/workspace.xml
+/**/.idea/workspace.xml
