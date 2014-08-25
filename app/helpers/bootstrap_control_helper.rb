@@ -26,8 +26,7 @@ module BootstrapControlHelper
     FIELD_HELPERS.each do |helper|
       define_method helper do |field, *args|
         options = args.detect{ |a| a.is_a?(Hash) } || {}
-        get_common_form_options(options)
-        generate_form_group(helper, field, options) do
+        generate_all(helper, field, options) do
           options[:placeholder] ||= I18n.t("helpers.label.#{@object.class.to_s.downcase}.#{field}") if options[:placeholder] || options[:invisible_label]
           options[:class] = ["form-control", options[:class]].compact.join(" ")
           super(field, options.slice(*CONTROL_OPTIONS))
@@ -38,10 +37,7 @@ module BootstrapControlHelper
     CHECK_BOX_AND_RADIO_HELPERS.each do |helper|
       define_method helper do |field, *args|
         options = args.detect{ |a| a.is_a?(Hash) } || {}
-        get_common_form_options(options)
-        generate_form_group(helper, field, options) do
-          super(field, options.slice(*CONTROL_OPTIONS))
-        end
+        generate_all(helper, field, options) { super(field, options.slice(*CONTROL_OPTIONS)) }
       end
     end
 
@@ -65,37 +61,52 @@ module BootstrapControlHelper
 
     alias_method_chain :fields_for, :bootstrap
 
-    def control_group_label(method, text = nil, options = {}, &block)
-      options[:label_class] = [options[:label_class], grid_system_offset_class(options[:grid_system], options[:offset_label_col])].compact.join(" ") if options[:offset_label_col]
-      options[:label_class] = [options[:label_class], grid_system_class(options[:grid_system], options[:label_col], :label)].compact.join(" ")
-      content_tag(:div, class: options[:label_class]) { label(method, text = nil, options = {}, &block) }
+    def generate_all(helper, field, options = {})
+      get_common_form_options(options)
+      generate_class(helper, field, options)
+      generate_form_group(options) { generate_label_and_control(helper, field, options) { yield } }
     end
 
-    def generate_form_group(helper, field, options = {}, &block)
+    def generate_class(helper, field, options = {})
       options[:control_col] ||= default_date_col if helper == "date_field"
-      generate_form_group_row(options) do
-        options[:group_class] = [options[:group_class], grid_system_offset_class(options[:grid_system], options[:offset_control_col])].compact.join(" ") if options[:offset_control_col] && grid_system_in_form_group?(helper, options)
-        options[:group_class] = [options[:group_class], grid_system_class(options[:grid_system], options[:control_col], :control)].compact.join(" ") if options[:control_col] && grid_system_in_form_group?(helper, options)
-        options[:group_class] = [options[:group_class], "form-group"].compact.join(" ")
-        options[:group_class] = [options[:group_class], "has-error"].compact.join(" ") if has_error?(field, options)
-        content_tag(:div, class: options[:group_class]) do
-          generate_label(helper, field, options, &block)
-        end
+      options[:group_class] = [options[:group_class], "form-group"].compact.join(" ")
+      options[:group_class] = [options[:group_class], "has-error"].compact.join(" ") if has_error?(field, options)
+      options[:label_class] = [options[:label_class], "sr-only"].compact.join(" ") if options[:invisible_label] || options[:layout] == :inline
+      unless options[:layout]
+        options[:group_class] = [options[:group_class], grid_system_offset_class(options[:grid_system], options[:offset_control_col])].compact.join(" ")
+        options[:group_class] = [options[:group_class], grid_system_class(options[:grid_system], options[:control_col], :control)].compact.join(" ") if options[:control_col]
+      else
+        options[:label_class] = [options[:label_class], grid_system_offset_class(options[:grid_system], options[:offset_label_col])].compact.join(" ")
+        options[:label_class] = [options[:label_class], grid_system_class(options[:grid_system], options[:label_col], :label)].compact.join(" ")
+        options[:label_class] = [options[:label_class], "control-label"].compact.join(" ")
+        options[:control_class] = [options[:control_class], grid_system_offset_class(options[:grid_system], options[:offset_control_col])].compact.join(" ")
+        options[:control_class] = [options[:control_class], grid_system_class(options[:grid_system], options[:control_col], :control)].compact.join(" ")
       end
     end
 
-    def generate_label(helper, field, options = {}, &block)
-      options[:label_class] = [options[:label_class], grid_system_offset_class(options[:grid_system], options[:offset_label_col])].compact.join(" ") if options[:offset_label_col] && !grid_system_in_form_group?(helper, options)
-      options[:label_class] = [options[:label_class], grid_system_class(options[:grid_system], options[:label_col], :label)].compact.join(" ") unless grid_system_in_form_group?(helper, options)
-      options[:label_class] = [options[:label_class], "control-label"].compact.join(" ") unless grid_system_in_form_group?(helper, options)
-      options[:label_class] = [options[:label_class], "sr-only"].compact.join(" ") if options[:invisible_label] || options[:layout] == :inline
-      CHECK_BOX_AND_RADIO_HELPERS.include?(helper) ? label(field, options[:label_text], class: options[:label_class]) { generate_control(helper, options, &block) } : label(field, options[:label_text], class: options[:label_class]).concat(generate_control(helper, options, &block))
+    def control_group_label(method, text = nil, options = {}, &block)
+      options[:label_class] = [options[:label_class], grid_system_offset_class(options[:grid_system], options[:offset_label_col])].compact.join(" ")
+      options[:label_class] = [options[:label_class], grid_system_class(options[:grid_system], options[:label_col], :label)].compact.join(" ")
+      content_tag(:div, class: options[:label_class]) { label(method, text, options, &block) }
     end
 
-    def generate_control(helper, options = {}, &block)
+    def generate_form_group(options = {})
+      generate_form_group_row(options) do
+        content_tag(:div, class: options[:group_class]) { yield }
+      end
+    end
+
+    def generate_label_and_control(helper, field, options = {}, &block)
+      if CHECK_BOX_AND_RADIO_HELPERS.include?(helper)
+        options[:label_text] ||= I18n.t("helpers.label.#{@object.class.to_s.downcase}.#{field}")
+        content_tag(:div, class: "checkbox") { label(field, generate_control(options, &block) << options[:label_text], class: options[:label_class]) }
+      else
+        label(field, options[:label_text], class: options[:label_class]) << generate_control(options, &block)
+      end
+    end
+
+    def generate_control(options = {}, &block)
       if options[:layout] == :horizontal
-        options[:control_class] = [options[:control_class], grid_system_offset_class(options[:grid_system], options[:offset_control_col])].compact.join(" ") if options[:offset_control_col] && !grid_system_in_form_group?(helper, options)
-        options[:control_class] = [options[:control_class], grid_system_class(options[:grid_system], options[:control_col], :control)].compact.join(" ") unless grid_system_in_form_group?(helper, options)
         content_tag(:div, class: options[:control_class]) { yield }
       else
         yield
@@ -117,11 +128,7 @@ module BootstrapControlHelper
     end
 
     def grid_system_offset_class(grid_system, col)
-      "col-#{(grid_system || default_grid_system).to_s}-offset-#{col}"
-    end
-
-    def grid_system_in_form_group?(helper, options)
-      !(options[:layout]) || CHECK_BOX_AND_RADIO_HELPERS.include?(helper)
+      "col-#{(grid_system || default_grid_system).to_s}-offset-#{col}" if col
     end
 
     def default_horizontal_label_col

@@ -4,12 +4,12 @@
 <% provide(:panel_footer_link, raw(t("sign_up.panel_footer_link",
                                      sign_in_link: link_to(t("sign_up.sign_in_link_text"), signin_path)))) %>
 
-<%= bootstrap_form_for(@user, url: signup_path) do |user_f| %>
+<%= bootstrap_form_for @user, url: signup_path, layout: :horizontal do |user_f| %>
     <%= user_f.fields_for :person do |person_f| %>
 
-        <%= person_f.text_area(:last_name) %>
-        <%= person_f.text_field(:last_name, control_col: 3) %>
-        <%= person_f.check_box(:last_name) %>
+        <%= person_f.text_area :last_name %>
+        <%= person_f.text_field :last_name, control_col: 3 %>
+        <%= person_f.check_box :last_name, label_text: "Test" %>
 
     <% end %><!-- /fields_for person -->
 
