@@ -21,7 +21,11 @@
 # .idea/gradle.xml
 # .idea/libraries
 
+# Fix bug with .idea projects
 marketbymarket/src/.idea/workspace.xml
+marketbymarket/src/.idea/*.iml
 **/.idea/workspace.xml
+**/.idea/*.iml
 /**/.idea/workspace.xml
+/**/.idea/*.iml
 .idea/*
